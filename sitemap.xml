@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://holden.baby/2025/05/08/C++%20Interview%20questions/</loc>
+    <loc>https://holden.baby/2025/05/08/C++%20Interview%20questions/</loc>
     
     <lastmod>2025-05-10</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://holden.baby/2025/04/26/hello-my-friends/</loc>
+    <loc>https://holden.baby/2025/04/26/hello-my-friends/</loc>
     
     <lastmod>2025-05-08</lastmod>
     
@@ -21,7 +21,7 @@
   
 
   <url>
-    <loc>http://holden.baby/</loc>
+    <loc>https://holden.baby/</loc>
     <lastmod>2025-05-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -29,14 +29,14 @@
 
   
   <url>
-    <loc>http://holden.baby/tags/C-C/</loc>
+    <loc>https://holden.baby/tags/C-C/</loc>
     <lastmod>2025-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://holden.baby/tags/Hello/</loc>
+    <loc>https://holden.baby/tags/Hello/</loc>
     <lastmod>2025-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
