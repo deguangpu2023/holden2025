@@ -127,6 +127,16 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -189,7 +199,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-05-12 10:38:11 / 修改时间：10:43:56" itemprop="dateCreated datePublished" datetime="2025-05-12T10:38:11+08:00">2025-05-12</time>
+              <time title="创建时间：2025-05-12 10:38:11 / 修改时间：11:57:17" itemprop="dateCreated datePublished" datetime="2025-05-12T10:38:11+08:00">2025-05-12</time>
             </span>
 
           
@@ -225,72 +235,14 @@
 
       
           <h1 id="OpenCV设置手动曝光"><a href="#OpenCV设置手动曝光" class="headerlink" title="OpenCV设置手动曝光"></a>OpenCV设置手动曝光</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// win系统VS2019平台测试通过</span></span><br><span class="line">cv_cap.<span class="built_in">set</span>(cv::CAP_PROP_AUTO_EXPOSURE, <span class="number">0.25</span>); <span class="comment">// 设置手动曝光</span></span><br><span class="line"></span><br><span class="line">idc_edit_exp_value_set = cap.<span class="built_in">get</span>(cv::CAP_PROP_EXPOSURE); <span class="comment">// 获取摄像头曝光</span></span><br><span class="line"></span><br><span class="line">cv_cap.<span class="built_in">set</span>(CV_CAP_PROP_EXPOSURE, <span class="number">-13</span>);  <span class="comment">// 对应的曝光时间见下表</span></span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>OpenCV_exposure</th>
-<th>快门时间ms</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-1</td>
-<td>640</td>
-</tr>
-<tr>
-<td>-2</td>
-<td>320</td>
-</tr>
-<tr>
-<td>-3</td>
-<td>160</td>
-</tr>
-<tr>
-<td>-4</td>
-<td>80</td>
-</tr>
-<tr>
-<td>-5</td>
-<td>40</td>
-</tr>
-<tr>
-<td>-6</td>
-<td>20</td>
-</tr>
-<tr>
-<td>-7</td>
-<td>10</td>
-</tr>
-<tr>
-<td>-8</td>
-<td>5</td>
-</tr>
-<tr>
-<td>-9</td>
-<td>2.5</td>
-</tr>
-<tr>
-<td>-10</td>
-<td>1.25</td>
-</tr>
-<tr>
-<td>-11</td>
-<td>0.625</td>
-</tr>
-<tr>
-<td>-12</td>
-<td>0.3125</td>
-</tr>
-<tr>
-<td>-13</td>
-<td>0.15625</td>
-</tr>
-<tr>
-<td>-14</td>
-<td>0.078125</td>
-</tr>
-</tbody></table>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -340,7 +292,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-12 10:43:34" itemprop="dateModified" datetime="2025-05-12T10:43:34+08:00">2025-05-12</time>
+                <time title="修改时间：2025-05-12 11:51:20" itemprop="dateModified" datetime="2025-05-12T11:51:20+08:00">2025-05-12</time>
               </span>
 
           
@@ -375,8 +327,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <span id="more"></span>
-<p><strong>1、malloc、free和new、delete的区别？</strong></p>
+          <p><strong>1、malloc、free和new、delete的区别？</strong></p>
 <p>malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。</p>
 <p>new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化；delete会先调用对象的析构函数，再释放内存。</p>
 <p>malloc和free：</p>
@@ -384,77 +335,14 @@
 
 <p>new和delete：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class MyClass &#123;</span><br><span class="line">public:</span><br><span class="line">    MyClass() &#123; std::cout &lt;&lt; &quot;Constructor called&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">    ~MyClass() &#123; std::cout &lt;&lt; &quot;Destructor called&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 使用new分配内存并初始化对象</span><br><span class="line">    MyClass* obj = new MyClass();</span><br><span class="line">    // 使用delete释放内存并调用析构函数</span><br><span class="line">    delete obj;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>2、虚函数表和虚函数表指针的创建时机？</strong></p>
-<p>在C++里，虚函数表（Virtual Table）和虚函数表指针（Virtual Table Pointer，简称vptr）是实现多态性的关键机制。</p>
-<p><strong>（1）虚函数表的创建时机</strong></p>
-<p>虚函数表是一个存储类的虚函数地址的静态数组，每个包含虚函数的类都会有一个对应的虚函数表。虚函数表的创建时机如下：</p>
-<p>编译时：编译器在编译阶段会为每个包含虚函数的类创建一个虚函数表。在这个过程中，编译器会遍历类中所有的虚函数，把它们的地址存于虚函数表中。如果类存在基类，且基类有虚函数，编译器还会处理继承关系，在派生类的虚函数表中更新或添加相应的虚函数地址。</p>
-<p>链接时：链接器会把各个编译单元中生成的虚函数表合并起来，形成最终的可执行文件中的虚函数表。</p>
-<p><strong>（2）虚函数表指针的创建时机</strong></p>
-<p>虚函数表指针是一个指向虚函数表的指针，每个包含虚函数的类的对象都会有一个虚函数表指针。虚函数表指针的创建时机如下：</p>
-<p>对象构造时：当创建一个包含虚函数的类的对象时，在对象的构造函数执行过程中，编译器会在对象的内存布局起始位置插入一个虚函数表指针，并将其初始化为指向该类的虚函数表。对于派生类对象，在基类构造函数执行时，虚函数表指针会指向基类的虚函数表；当派生类构造函数执行时，虚函数表指针会被更新为指向派生类的虚函数表。</p>
-<p>对象析构时：在对象的析构函数执行过程中，虚函数表指针会在析构函数结束前被重置。对于派生类对象，在派生类析构函数执行时，虚函数表指针会指向派生类的虚函数表；当基类析构函数执行时，虚函数表指针会被更新为指向基类的虚函数表。</p>
-<p><strong>3、左值引用与右值引用的区别？右值引用的意义？</strong></p>
-<p><strong>左值引用与右值引用的区别</strong></p>
-<p>（1）基本概念</p>
-<p>左值：指的是那些可以取地址、有名字的表达式，通常是变量或者对象。例如，普通变量、数组元素、函数返回的左值引用等都是左值。</p>
-<p>右值：指的是那些不能取地址、没有名字的临时对象或字面量。例如，字面常量、函数返回的临时对象等都是右值。</p>
-<p>（2）语法形式</p>
-<p>左值引用：使用一个&amp;符号来声明，它只能绑定到左值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 10;</span><br><span class="line">int&amp; ref = a; // 左值引用绑定到左值</span><br></pre></td></tr></table></figure>
-<p>右值引用：使用两个&amp;&amp;符号来声明，它只能绑定到右值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int&amp;&amp; rref = 20; // 右值引用绑定到右值</span><br></pre></td></tr></table></figure>
-<p>（3）绑定规则</p>
-<p>左值引用：只能绑定到左值，不能直接绑定到右值。不过，const左值引用是个例外，它可以绑定到右值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = 10;</span><br><span class="line">int&amp; ref1 = a; // 正确，绑定到左值</span><br><span class="line">// int&amp; ref2 = 20; // 错误，不能将左值引用绑定到右值</span><br><span class="line">const int&amp; ref3 = 20; // 正确，const左值引用可以绑定到右值</span><br></pre></td></tr></table></figure>
-<p>右值引用：只能绑定到右值，不能绑定到左值。但可以通过std::move将左值转换为右值后再绑定。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int&amp;&amp; rref1 = 20; // 正确，绑定到右值</span><br><span class="line">int a = 10;</span><br><span class="line">// int&amp;&amp; rref2 = a; // 错误，不能将右值引用绑定到左值</span><br><span class="line">int&amp;&amp; rref3 = std::move(a); // 正确，通过std::move将左值转换为右值后绑定</span><br></pre></td></tr></table></figure>
-<p>（4）生命周期</p>
-<p>左值引用：如果引用的对象是一个局部变量，其生命周期取决于该局部变量的生命周期。当局部变量离开作用域时，引用也会失效。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int getValue() &#123;</span><br><span class="line">    int temp = 10;</span><br><span class="line">    // int&amp; ref = temp; // 不推荐，temp 离开作用域后 ref 会失效</span><br><span class="line">    return temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>右值引用：右值引用可以延长右值的生命周期，使其生命周期和右值引用对象的生命周期相同。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class MyClass &#123;</span><br><span class="line">public:</span><br><span class="line">    MyClass() &#123; std::cout &lt;&lt; &quot;Constructor&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">    ~MyClass() &#123; std::cout &lt;&lt; &quot;Destructor&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyClass getTempObject() &#123;</span><br><span class="line">    return MyClass();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    MyClass&amp;&amp; rref = getTempObject();</span><br><span class="line">    // 右值的生命周期被延长，直到 rref 离开作用域</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>右值引用的意义</strong></p>
-<p>（1）实现移动语义</p>
-<p>移动语义是C++11引入的重要特性，它允许资源（如动态分配的内存）从一个对象转移到另一个对象，而无需进行昂贵的深拷贝。通过定义移动构造函数和移动赋值运算符，可以使用右值引用实现移动语义。</p>
-<p>（2）完美转发<br>完美转发是指在函数模板中，能够将参数以原有的值类别（左值或右值）传递给其他函数。通过使用右值引用和std::forward，可以实现完美转发。</p>
-<p>综上所述，左值引用和右值引用在概念、语法、绑定规则和生命周期等方面存在明显区别，而右值引用主要用于实现移动语义和完美转发，提高程序的性能和灵活性。</p>
-<p><strong>4、C++智能指针有哪些，有什么区别？</strong></p>
-<ol>
-<li>std::auto_ptr（C++98 引入，C++17 弃用）</li>
-</ol>
-<p>std::auto_ptr是最早引入的智能指针，它采用独占所有权模型，即同一时间只能有一个std::auto_ptr指向同一个对象。当std::auto_ptr被销毁或赋值给另一个std::auto_ptr时，它会自动释放所管理的对象。不过，由于其在转移所有权时的一些问题，在 C++17 中已被弃用。</p>
-<ol start="2">
-<li>std::unique_ptr（C++11 引入）</li>
-</ol>
-<p>std::unique_ptr同样采用独占所有权模型，确保同一时间只有一个std::unique_ptr指向同一个对象。与std::auto_ptr不同的是，std::unique_ptr的所有权转移更加安全，它禁止隐式的拷贝和赋值操作，只能通过std::move进行显式的所有权转移。</p>
-<ol start="3">
-<li>std::shared_ptr（C++11 引入）</li>
-</ol>
-<p>std::shared_ptr采用共享所有权模型，多个std::shared_ptr可以指向同一个对象。它使用引用计数机制来跟踪有多少个std::shared_ptr共享同一个对象，当引用计数变为 0 时，对象会被自动释放。</p>
-<ol start="4">
-<li>std::weak_ptr（C++11 引入）</li>
-</ol>
-<p>std::weak_ptr是一种弱引用智能指针，它可以从std::shared_ptr或另一个std::weak_ptr创建，但不会增加所指向对象的引用计数。std::weak_ptr主要用于解决std::shared_ptr的循环引用问题。</p>
-<p>区别总结</p>
-<p>所有权模型：<br>std::auto_ptr和std::unique_ptr是独占所有权，同一时间只有一个智能指针可以指向同一个对象。<br>std::shared_ptr是共享所有权，多个智能指针可以同时指向同一个对象。<br>std::weak_ptr是弱引用，不拥有对象的所有权。</p>
-<p>安全性：<br>std::auto_ptr在转移所有权时存在一些问题，容易导致悬空指针，已被弃用。<br>std::unique_ptr通过禁止隐式拷贝和赋值，提高了所有权转移的安全性。<br>std::shared_ptr和std::weak_ptr使用引用计数机制，避免了手动管理内存的复杂性。</p>
-<p>引用计数：<br>std::shared_ptr使用引用计数来跟踪对象的引用次数，当引用计数为 0 时自动释放对象。<br>std::weak_ptr不影响对象的引用计数，主要用于解决循环引用问题。</p>
-<p>综上所述，在实际开发中，应优先使用std::unique_ptr和std::shared_ptr，根据具体需求选择合适的智能指针。如果需要独占所有权，使用std::unique_ptr；如果需要共享所有权，使用std::shared_ptr；如果需要解决循环引用问题，使用std::weak_ptr。</p>
-<p><strong>5、sizeof与strlen的差异？</strong></p>
-<p>sizeof：它是一个运算符，并非函数。在编译阶段，编译器就会对sizeof进行计算，确定数据类型或者变量所占用的内存字节数。</p>
-<p>它可以用于计算各种数据类型（如int、char、double等）、变量、数组、指针或者结构体所占用的内存大小。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int num = 10;</span><br><span class="line">    char str[] = &quot;Hello&quot;;</span><br><span class="line">    printf(&quot;Size of int: %zu\n&quot;, sizeof(int));</span><br><span class="line">    printf(&quot;Size of num: %zu\n&quot;, sizeof(num));</span><br><span class="line">    printf(&quot;Size of str: %zu\n&quot;, sizeof(str));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>strlen：这是一个标准库函数，其定义在&lt;string.h&gt;（C）或者<cstring>（C++）头文件中。它会在运行时计算字符串的实际长度。</p>
-<p>它只能用于以’\0’结尾的字符串，计算从字符串起始位置到第一个’\0’字符之间的字符个数。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char str[] = &quot;Hello&quot;;</span><br><span class="line">    printf(&quot;Length of str: %zu\n&quot;, strlen(str));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>综上所述，sizeof和strlen在本质、使用方式、计算结果、时间复杂度和适用范围等方面都存在明显差异。在实际编程中，需要根据具体需求选择合适的工具。如果需要确定数据类型或变量所占用的内存大小，使用sizeof；如果需要计算字符串的实际长度，使用strlen。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/05/08/C++%20Interview%20questions/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -629,8 +517,10 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>

@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://holden.baby/about/index.html</loc>
+    
+    <lastmod>2025-05-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://holden.baby/tags/index.html</loc>
+    
+    <lastmod>2025-05-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://holden.baby/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/</loc>
     
     <lastmod>2025-05-12</lastmod>
@@ -38,14 +56,14 @@
 
   
   <url>
-    <loc>https://holden.baby/tags/OpenCV/</loc>
+    <loc>https://holden.baby/tags/C-C/</loc>
     <lastmod>2025-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://holden.baby/tags/C-C/</loc>
+    <loc>https://holden.baby/tags/OpenCV/</loc>
     <lastmod>2025-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
