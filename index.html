@@ -164,6 +164,151 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Holden">
+      <meta itemprop="description" content="独立开发,技术分享,技术博客,技术文章,程序员,生活感悟,道家养生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到我的博客~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/" class="post-title-link" itemprop="url">OpenCV设置手动曝光</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-05-12 10:38:11 / 修改时间：10:43:56" itemprop="dateCreated datePublished" datetime="2025-05-12T10:38:11+08:00">2025-05-12</time>
+            </span>
+
+          
+            <span id="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/" class="post-meta-item leancloud_visitors" data-flag-title="OpenCV设置手动曝光" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OpenCV设置手动曝光"><a href="#OpenCV设置手动曝光" class="headerlink" title="OpenCV设置手动曝光"></a>OpenCV设置手动曝光</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// win系统VS2019平台测试通过</span></span><br><span class="line">cv_cap.<span class="built_in">set</span>(cv::CAP_PROP_AUTO_EXPOSURE, <span class="number">0.25</span>); <span class="comment">// 设置手动曝光</span></span><br><span class="line"></span><br><span class="line">idc_edit_exp_value_set = cap.<span class="built_in">get</span>(cv::CAP_PROP_EXPOSURE); <span class="comment">// 获取摄像头曝光</span></span><br><span class="line"></span><br><span class="line">cv_cap.<span class="built_in">set</span>(CV_CAP_PROP_EXPOSURE, <span class="number">-13</span>);  <span class="comment">// 对应的曝光时间见下表</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>OpenCV_exposure</th>
+<th>快门时间ms</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>320</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>160</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>80</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>40</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>20</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>10</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>5</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>1.25</td>
+</tr>
+<tr>
+<td>-11</td>
+<td>0.625</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>0.3125</td>
+</tr>
+<tr>
+<td>-13</td>
+<td>0.15625</td>
+</tr>
+<tr>
+<td>-14</td>
+<td>0.078125</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/08/C++%20Interview%20questions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -195,7 +340,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-10 15:54:43" itemprop="dateModified" datetime="2025-05-10T15:54:43+08:00">2025-05-10</time>
+                <time title="修改时间：2025-05-12 10:43:34" itemprop="dateModified" datetime="2025-05-12T10:43:34+08:00">2025-05-12</time>
               </span>
 
           
@@ -230,7 +375,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>1、malloc、free和new、delete的区别？</strong></p>
+          <span id="more"></span>
+<p><strong>1、malloc、free和new、delete的区别？</strong></p>
 <p>malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。</p>
 <p>new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化；delete会先调用对象的析构函数，再释放内存。</p>
 <p>malloc和free：</p>
@@ -358,7 +504,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-08 11:53:49" itemprop="dateModified" datetime="2025-05-08T11:53:49+08:00">2025-05-08</time>
+                <time title="修改时间：2025-05-12 10:37:19" itemprop="dateModified" datetime="2025-05-12T10:37:19+08:00">2025-05-12</time>
               </span>
 
           
@@ -478,12 +624,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -504,7 +650,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://deguangpu2023.github.io/holden2025/" title="https:&#x2F;&#x2F;deguangpu2023.github.io&#x2F;holden2025&#x2F;" rel="noopener" target="_blank">Holden Blog</a>
+          <a href="https://holden.baby/" title="https:&#x2F;&#x2F;holden.baby&#x2F;">Holden Blog</a>
         </li>
     </ul>
   </div>
@@ -623,7 +769,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       notify     : false,
       appId      : 'zUvusKGeQb1DBgAstjWgVfH6-gzGzoHsz',
       appKey     : 'BOjN0CSgH90Dfdsrlh61xeP5',
-      placeholder: "hi",
+      placeholder: "just go",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,
