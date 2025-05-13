@@ -174,7 +174,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,7 +188,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/" class="post-title-link" itemprop="url">OpenCV设置手动曝光</a>
+            <a href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">OpenCV相机参数设置</a>
         </h2>
 
         <div class="post-meta">
@@ -197,13 +197,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-05-12 10:38:11 / 修改时间：11:57:17" itemprop="dateCreated datePublished" datetime="2025-05-12T10:38:11+08:00">2025-05-12</time>
+              <time title="创建时间：2025-05-12 10:38:11" itemprop="dateCreated datePublished" datetime="2025-05-12T10:38:11+08:00">2025-05-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-13 13:59:00" itemprop="dateModified" datetime="2025-05-13T13:59:00+08:00">2025-05-13</time>
+              </span>
 
           
-            <span id="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/" class="post-meta-item leancloud_visitors" data-flag-title="OpenCV设置手动曝光" title="阅读次数">
+            <span id="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="OpenCV相机参数设置" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -218,8 +224,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -234,10 +240,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="OpenCV设置手动曝光"><a href="#OpenCV设置手动曝光" class="headerlink" title="OpenCV设置手动曝光"></a>OpenCV设置手动曝光</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// win系统VS2019平台测试通过</span></span><br><span class="line">cv_cap.<span class="built_in">set</span>(cv::CAP_PROP_AUTO_EXPOSURE, <span class="number">0.25</span>); <span class="comment">// 设置手动曝光</span></span><br><span class="line"></span><br><span class="line">idc_edit_exp_value_set = cap.<span class="built_in">get</span>(cv::CAP_PROP_EXPOSURE); <span class="comment">// 获取摄像头曝光</span></span><br><span class="line"></span><br><span class="line">cv_cap.<span class="built_in">set</span>(CV_CAP_PROP_EXPOSURE, <span class="number">-13</span>);  <span class="comment">// 对应的曝光时间见下表</span></span><br></pre></td></tr></table></figure>
+          <p>最近调试了一下多光谱相机，发现调节USB摄像头曝光参数是用OpenCV写的，我的OpenCV版本是4.5.4，于是记录一下，以便查阅。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// win系统VS2019平台测试通过</span></span><br><span class="line">cv_cap.<span class="built_in">set</span>(cv::CAP_PROP_AUTO_EXPOSURE, <span class="number">0.25</span>); <span class="comment">// 设置手动曝光</span></span><br><span class="line"></span><br><span class="line">idc_edit_exp_value_set = cap.<span class="built_in">get</span>(cv::CAP_PROP_EXPOSURE); <span class="comment">// 获取摄像头曝光</span></span><br><span class="line"></span><br><span class="line">cv_cap.<span class="built_in">set</span>(CV_CAP_PROP_EXPOSURE, <span class="number">-13</span>);  <span class="comment">// 设置曝光，对应的曝光时间见下表</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/05/12/OpenCV%E8%AE%BE%E7%BD%AE%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/#more" rel="contents">
+              <a class="btn" href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -261,7 +268,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/08/C++%20Interview%20questions/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/08/C++Interview%20questions1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -275,7 +282,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/05/08/C++%20Interview%20questions/" class="post-title-link" itemprop="url">C/C++面试题目整理（持续更新）</a>
+            <a href="/2025/05/08/C++Interview%20questions1/" class="post-title-link" itemprop="url">C/C++面试题目整理（1）</a>
         </h2>
 
         <div class="post-meta">
@@ -292,11 +299,11 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-12 11:51:20" itemprop="dateModified" datetime="2025-05-12T11:51:20+08:00">2025-05-12</time>
+                <time title="修改时间：2025-05-13 17:58:39" itemprop="dateModified" datetime="2025-05-13T17:58:39+08:00">2025-05-13</time>
               </span>
 
           
-            <span id="/2025/05/08/C++%20Interview%20questions/" class="post-meta-item leancloud_visitors" data-flag-title="C/C++面试题目整理（持续更新）" title="阅读次数">
+            <span id="/2025/05/08/C++Interview%20questions1/" class="post-meta-item leancloud_visitors" data-flag-title="C/C++面试题目整理（1）" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -311,8 +318,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2025/05/08/C++%20Interview%20questions/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/08/C++%20Interview%20questions/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/05/08/C++Interview%20questions1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/08/C++Interview%20questions1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -330,14 +337,9 @@
           <p><strong>1、malloc、free和new、delete的区别？</strong></p>
 <p>malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。</p>
 <p>new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化；delete会先调用对象的析构函数，再释放内存。</p>
-<p>malloc和free：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstdlib&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 使用malloc分配内存</span><br><span class="line">    int* ptr = (int*)malloc(sizeof(int));</span><br><span class="line">    if (ptr != nullptr) &#123;</span><br><span class="line">        *ptr = 10;</span><br><span class="line">        std::cout &lt;&lt; *ptr &lt;&lt; std::endl;</span><br><span class="line">        // 使用free释放内存</span><br><span class="line">        free(ptr);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>new和delete：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class MyClass &#123;</span><br><span class="line">public:</span><br><span class="line">    MyClass() &#123; std::cout &lt;&lt; &quot;Constructor called&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">    ~MyClass() &#123; std::cout &lt;&lt; &quot;Destructor called&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 使用new分配内存并初始化对象</span><br><span class="line">    MyClass* obj = new MyClass();</span><br><span class="line">    // 使用delete释放内存并调用析构函数</span><br><span class="line">    delete obj;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/05/08/C++%20Interview%20questions/#more" rel="contents">
+              <a class="btn" href="/2025/05/08/C++Interview%20questions1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -361,7 +363,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/04/26/hello-my-friends/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/04/26/Hello%20My%20Friends/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -375,7 +377,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/26/hello-my-friends/" class="post-title-link" itemprop="url">Hello My Friends！</a>
+            <a href="/2025/04/26/Hello%20My%20Friends/" class="post-title-link" itemprop="url">Hello My Friends！</a>
         </h2>
 
         <div class="post-meta">
@@ -392,11 +394,11 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-12 10:37:19" itemprop="dateModified" datetime="2025-05-12T10:37:19+08:00">2025-05-12</time>
+                <time title="修改时间：2025-05-13 17:58:39" itemprop="dateModified" datetime="2025-05-13T17:58:39+08:00">2025-05-13</time>
               </span>
 
           
-            <span id="/2025/04/26/hello-my-friends/" class="post-meta-item leancloud_visitors" data-flag-title="Hello My Friends！" title="阅读次数">
+            <span id="/2025/04/26/Hello%20My%20Friends/" class="post-meta-item leancloud_visitors" data-flag-title="Hello My Friends！" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -411,8 +413,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2025/04/26/hello-my-friends/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2025/04/26/hello-my-friends/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/04/26/Hello%20My%20Friends/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/04/26/Hello%20My%20Friends/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -429,6 +431,7 @@
       
           <p>Hi！大家好！我是Holden</p>
 <pre><code>哈哈，这是我的第一篇博客，谢谢~
+爱好旅游、写代码、看蔡依林演唱会、看刘德华电影、喜欢香港…
 😄
 </code></pre>
 
