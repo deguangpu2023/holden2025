@@ -10,6 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <meta name="google-site-verification" content="HcrqOuyM0FrMClnEvg_tOK3_HKjKuSTWitSgWMJnOZQ">
+  <meta name="baidu-site-verification" content="codeva-M5QM9dE4xL">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -21,18 +22,20 @@
     var CONFIG = {"hostname":"holden.baby","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="独立开发,技术分享,技术博客,技术文章,程序员,生活感悟,道家养生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欢迎来到我的博客~">
-<meta property="og:url" content="https://holden.baby/tags/OpenCV/index.html">
-<meta property="og:site_name" content="欢迎来到我的博客~">
-<meta property="og:description" content="独立开发,技术分享,技术博客,技术文章,程序员,生活感悟,道家养生">
+  <meta name="description" content="最近调试了一下多光谱相机，发现调节USB彩色摄像头曝光参数是用OpenCV写的，我的OpenCV版本是4.5.4，于是记录一下如何调为手动曝光，以便查阅。 123456&#x2F;&#x2F; win系统VS2019平台测试通过cv_cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 0.25); &#x2F;&#x2F; 设置手动曝光idc_edit_exp_value_set &#x3D; cap.get(cv::CAP_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV相机曝光参数设置">
+<meta property="og:url" content="https://holden.baby/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Holden Blog">
+<meta property="og:description" content="最近调试了一下多光谱相机，发现调节USB彩色摄像头曝光参数是用OpenCV写的，我的OpenCV版本是4.5.4，于是记录一下如何调为手动曝光，以便查阅。 123456&#x2F;&#x2F; win系统VS2019平台测试通过cv_cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 0.25); &#x2F;&#x2F; 设置手动曝光idc_edit_exp_value_set &#x3D; cap.get(cv::CAP_">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-12T02:38:11.000Z">
+<meta property="article:modified_time" content="2025-05-14T05:37:20.852Z">
 <meta property="article:author" content="Holden">
-<meta property="article:tag" content="独立开发,技术分享,技术博客,技术文章,程序员,生活感悟,道家养生">
+<meta property="article:tag" content="OpenCV手动曝光">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://holden.baby/tags/OpenCV/">
+<link rel="canonical" href="https://holden.baby/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/">
 
 
 <script id="page-configurations">
@@ -40,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: OpenCV | 欢迎来到我的博客~</title>
+  <title>OpenCV相机曝光参数设置 | Holden Blog</title>
   
 
 
@@ -105,10 +108,10 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">欢迎来到我的博客~</h1>
+      <h1 class="site-title">Holden Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">Holden Blog</p>
+      <p class="site-subtitle" itemprop="description">浪迹山海 Hello World</p>
   </div>
 
   <div class="site-nav-right">
@@ -168,57 +171,181 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Holden">
+      <meta itemprop="description" content="我是一位来自中国的工程师，这是我的个人博客，用于记录工作与生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Holden Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OpenCV相机曝光参数设置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-05-12 10:38:11" itemprop="dateCreated datePublished" datetime="2025-05-12T10:38:11+08:00">2025-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-14 13:37:20" itemprop="dateModified" datetime="2025-05-14T13:37:20+08:00">2025-05-14</time>
+              </span>
+
+          
+            <span id="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="OpenCV相机曝光参数设置" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">OpenCV
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <p>最近调试了一下多光谱相机，发现调节USB彩色摄像头曝光参数是用OpenCV写的，我的OpenCV版本是4.5.4，于是记录一下如何调为手动曝光，以便查阅。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// win系统VS2019平台测试通过</span></span><br><span class="line">cv_cap.<span class="built_in">set</span>(cv::CAP_PROP_AUTO_EXPOSURE, <span class="number">0.25</span>); <span class="comment">// 设置手动曝光</span></span><br><span class="line"></span><br><span class="line">idc_edit_exp_value_set = cap.<span class="built_in">get</span>(cv::CAP_PROP_EXPOSURE); <span class="comment">// 获取摄像头曝光</span></span><br><span class="line"></span><br><span class="line">cv_cap.<span class="built_in">set</span>(CV_CAP_PROP_EXPOSURE, <span class="number">-13</span>);  <span class="comment">// 设置曝光，对应的曝光时间见下表</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<table>
+<thead>
+<tr>
+<th>OpenCV_exposure</th>
+<th>快门时间ms</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>320</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>160</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>80</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>40</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>20</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>10</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>5</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>1.25</td>
+</tr>
+<tr>
+<td>-11</td>
+<td>0.625</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>0.3125</td>
+</tr>
+<tr>
+<td>-13</td>
+<td>0.15625</td>
+</tr>
+<tr>
+<td>-14</td>
+<td>0.078125</td>
+</tr>
+</tbody></table>
+<p>其他的设置参数函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cap.<span class="built_in">set</span>(cv.CAP_PROP_FRAME_WIDTH, <span class="number">1080</span>)    <span class="comment">//宽度</span></span><br><span class="line">cap.<span class="built_in">set</span>(cv.CAP_PROP_FRAME_HEIGHT, <span class="number">720</span>)    <span class="comment">//高度</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_FPS, <span class="number">30</span>)         <span class="comment">//帧数</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_BRIGHTNESS, <span class="number">0.1</span>)     <span class="comment">//亮度</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_CONTRAST, <span class="number">40</span>)     <span class="comment">//对比度</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_SATURATION, <span class="number">50</span>)   <span class="comment">//饱和度</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_HUE, <span class="number">50</span>)         <span class="comment">//色调</span></span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-05-12T10:38:11+08:00"
-              content="2025-05-12">
-          05-12
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OpenCV%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/" rel="tag"># OpenCV手动曝光</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">OpenCV相机参数设置</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/05/08/C++Interview%20questions1/" rel="prev" title="C/C++面试题目整理（1）">
+      <i class="fa fa-chevron-left"></i> C/C++面试题目整理（1）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -271,7 +398,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Holden</p>
-  <div class="site-description" itemprop="description">独立开发,技术分享,技术博客,技术文章,程序员,生活感悟,道家养生</div>
+  <div class="site-description" itemprop="description">我是一位来自中国的工程师，这是我的个人博客，用于记录工作与生活</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -391,6 +518,31 @@
 
 
   
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
 
 
 

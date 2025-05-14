@@ -10,6 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <meta name="google-site-verification" content="HcrqOuyM0FrMClnEvg_tOK3_HKjKuSTWitSgWMJnOZQ">
+  <meta name="baidu-site-verification" content="codeva-M5QM9dE4xL">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -25,7 +26,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="C&#x2F;C++面试题目整理（1）">
 <meta property="og:url" content="https://holden.baby/2025/05/08/C++Interview%20questions1/index.html">
-<meta property="og:site_name" content="欢迎来到我的博客~">
+<meta property="og:site_name" content="Holden Blog">
 <meta property="og:description" content="1、malloc、free和new、delete的区别？ malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。 new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-08T01:46:11.000Z">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>C/C++面试题目整理（1） | 欢迎来到我的博客~</title>
+  <title>C/C++面试题目整理（1） | Holden Blog</title>
   
 
 
@@ -107,10 +108,10 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">欢迎来到我的博客~</h1>
+      <h1 class="site-title">Holden Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">Holden Blog</p>
+      <p class="site-subtitle" itemprop="description">浪迹山海 Hello World</p>
   </div>
 
   <div class="site-nav-right">
@@ -182,11 +183,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Holden">
-      <meta itemprop="description" content="独立开发,技术分享,技术博客,技术文章,程序员,生活感悟,道家养生">
+      <meta itemprop="description" content="我是一位来自中国的工程师，这是我的个人博客，用于记录工作与生活">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到我的博客~">
+      <meta itemprop="name" content="Holden Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -342,8 +343,8 @@
       <i class="fa fa-chevron-left"></i> Hello My Friends！
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" rel="next" title="OpenCV相机参数设置">
-      OpenCV相机参数设置 <i class="fa fa-chevron-right"></i>
+    <a href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" rel="next" title="OpenCV相机曝光参数设置">
+      OpenCV相机曝光参数设置 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -410,7 +411,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Holden</p>
-  <div class="site-description" itemprop="description">独立开发,技术分享,技术博客,技术文章,程序员,生活感悟,道家养生</div>
+  <div class="site-description" itemprop="description">我是一位来自中国的工程师，这是我的个人博客，用于记录工作与生活</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -530,6 +531,31 @@
 
 
   
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
 
 
 
