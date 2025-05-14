@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Holden Blog - 浪迹山海 Hello World</title>
+  <title>Holden Blog</title>
   
 
 
@@ -175,6 +175,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/14/%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Holden">
+      <meta itemprop="description" content="我是一位来自中国的工程师，这是我的个人博客，用于记录工作与生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Holden Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/05/14/%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA/" class="post-title-link" itemprop="url">多光谱相机</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-05-14 14:47:04 / 修改时间：14:56:35" itemprop="dateCreated datePublished" datetime="2025-05-14T14:47:04+08:00">2025-05-14</time>
+            </span>
+
+          
+            <span id="/2025/05/14/%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA/" class="post-meta-item leancloud_visitors" data-flag-title="多光谱相机" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2025/05/14/%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/14/%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>FPGA实时读取和处理9个摄像头数据<br>上位机软件使用MFC编写<br>8个黑白通道+1个RGB通道，中心波长可定制<br>黑白摄像头分辨率1280<em>1024<br>彩色摄像头分辨率1280</em>720<br><img src="/images/1.jpg" alt="图片" title="多光谱1"><br><img src="/images/2.jpg" alt="图片" title="多光谱2"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -244,11 +324,6 @@
           <p>最近调试了一下多光谱相机，发现调节USB彩色摄像头曝光参数是用OpenCV写的，我的OpenCV版本是4.5.4，于是记录一下如何调为手动曝光，以便查阅。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// win系统VS2019平台测试通过</span></span><br><span class="line">cv_cap.<span class="built_in">set</span>(cv::CAP_PROP_AUTO_EXPOSURE, <span class="number">0.25</span>); <span class="comment">// 设置手动曝光</span></span><br><span class="line"></span><br><span class="line">idc_edit_exp_value_set = cap.<span class="built_in">get</span>(cv::CAP_PROP_EXPOSURE); <span class="comment">// 获取摄像头曝光</span></span><br><span class="line"></span><br><span class="line">cv_cap.<span class="built_in">set</span>(CV_CAP_PROP_EXPOSURE, <span class="number">-13</span>);  <span class="comment">// 设置曝光，对应的曝光时间见下表</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
           <!--/noindex-->
         
       
@@ -339,11 +414,6 @@
 <p>malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。</p>
 <p>new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化；delete会先调用对象的析构函数，再释放内存。</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/05/08/C++Interview%20questions1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
           <!--/noindex-->
         
       
@@ -516,14 +586,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
