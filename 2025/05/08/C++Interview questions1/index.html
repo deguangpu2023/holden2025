@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"holden.baby","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1、malloc、free和new、delete的区别？ malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。 new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化">
+  <meta name="description" content="整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~1、malloc、free和new、delete的区别？malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。 new和delete：它们是C++的运算符，具备类型安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C&#x2F;C++面试题目整理（1）">
 <meta property="og:url" content="https://holden.baby/2025/05/08/C++Interview%20questions1/index.html">
 <meta property="og:site_name" content="Holden Blog">
-<meta property="og:description" content="1、malloc、free和new、delete的区别？ malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。 new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化">
+<meta property="og:description" content="整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~1、malloc、free和new、delete的区别？malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。 new和delete：它们是C++的运算符，具备类型安全">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-08T01:46:11.000Z">
-<meta property="article:modified_time" content="2025-05-13T09:58:39.300Z">
+<meta property="article:modified_time" content="2025-05-14T11:19:56.204Z">
 <meta property="article:author" content="Holden">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
@@ -111,7 +111,7 @@
       <h1 class="site-title">Holden Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">浪迹山海 Hello World</p>
+      <p class="site-subtitle" itemprop="description">浪迹山海 / Hello World~</p>
   </div>
 
   <div class="site-nav-right">
@@ -183,7 +183,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Holden">
-      <meta itemprop="description" content="我是一位来自中国的工程师，这是我的个人博客，用于记录工作与生活">
+      <meta itemprop="description" content="我是一位来自中国的软件工程师，这是我的个人博客，用于记录工作与生活，谢谢关注哦~">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -208,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-13 17:58:39" itemprop="dateModified" datetime="2025-05-13T17:58:39+08:00">2025-05-13</time>
+                <time title="修改时间：2025-05-14 19:19:56" itemprop="dateModified" datetime="2025-05-14T19:19:56+08:00">2025-05-14</time>
               </span>
 
           
@@ -243,8 +243,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>1、malloc、free和new、delete的区别？</strong></p>
-<p>malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。</p>
+        <h1 id="整理一些C-C-程序员面试的题目，经常拿来看看吧"><a href="#整理一些C-C-程序员面试的题目，经常拿来看看吧" class="headerlink" title="整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~"></a><strong>整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~</strong></h1><h2 id="1、malloc、free和new、delete的区别？"><a href="#1、malloc、free和new、delete的区别？" class="headerlink" title="1、malloc、free和new、delete的区别？"></a><strong>1、malloc、free和new、delete的区别？</strong></h2><p>malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。</p>
 <p>new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化；delete会先调用对象的析构函数，再释放内存。</p>
 <span id="more"></span>
 
@@ -253,19 +252,14 @@
 
 <p>new和delete：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class MyClass &#123;</span><br><span class="line">public:</span><br><span class="line">    MyClass() &#123; std::cout &lt;&lt; &quot;Constructor called&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">    ~MyClass() &#123; std::cout &lt;&lt; &quot;Destructor called&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 使用new分配内存并初始化对象</span><br><span class="line">    MyClass* obj = new MyClass();</span><br><span class="line">    // 使用delete释放内存并调用析构函数</span><br><span class="line">    delete obj;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2、虚函数表和虚函数表指针的创建时机？</strong></p>
-<p>在C++里，虚函数表（Virtual Table）和虚函数表指针（Virtual Table Pointer，简称vptr）是实现多态性的关键机制。</p>
-<p><strong>（1）虚函数表的创建时机</strong></p>
-<p>虚函数表是一个存储类的虚函数地址的静态数组，每个包含虚函数的类都会有一个对应的虚函数表。虚函数表的创建时机如下：</p>
+<h2 id="2、虚函数表和虚函数表指针的创建时机？"><a href="#2、虚函数表和虚函数表指针的创建时机？" class="headerlink" title="2、虚函数表和虚函数表指针的创建时机？"></a><strong>2、虚函数表和虚函数表指针的创建时机？</strong></h2><p>在C++里，虚函数表（Virtual Table）和虚函数表指针（Virtual Table Pointer，简称vptr）是实现多态性的关键机制。</p>
+<h3 id="（1）虚函数表的创建时机"><a href="#（1）虚函数表的创建时机" class="headerlink" title="（1）虚函数表的创建时机"></a><strong>（1）虚函数表的创建时机</strong></h3><p>虚函数表是一个存储类的虚函数地址的静态数组，每个包含虚函数的类都会有一个对应的虚函数表。虚函数表的创建时机如下：</p>
 <p>编译时：编译器在编译阶段会为每个包含虚函数的类创建一个虚函数表。在这个过程中，编译器会遍历类中所有的虚函数，把它们的地址存于虚函数表中。如果类存在基类，且基类有虚函数，编译器还会处理继承关系，在派生类的虚函数表中更新或添加相应的虚函数地址。</p>
 <p>链接时：链接器会把各个编译单元中生成的虚函数表合并起来，形成最终的可执行文件中的虚函数表。</p>
-<p><strong>（2）虚函数表指针的创建时机</strong></p>
-<p>虚函数表指针是一个指向虚函数表的指针，每个包含虚函数的类的对象都会有一个虚函数表指针。虚函数表指针的创建时机如下：</p>
+<h3 id="（2）虚函数表指针的创建时机"><a href="#（2）虚函数表指针的创建时机" class="headerlink" title="（2）虚函数表指针的创建时机"></a><strong>（2）虚函数表指针的创建时机</strong></h3><p>虚函数表指针是一个指向虚函数表的指针，每个包含虚函数的类的对象都会有一个虚函数表指针。虚函数表指针的创建时机如下：</p>
 <p>对象构造时：当创建一个包含虚函数的类的对象时，在对象的构造函数执行过程中，编译器会在对象的内存布局起始位置插入一个虚函数表指针，并将其初始化为指向该类的虚函数表。对于派生类对象，在基类构造函数执行时，虚函数表指针会指向基类的虚函数表；当派生类构造函数执行时，虚函数表指针会被更新为指向派生类的虚函数表。</p>
 <p>对象析构时：在对象的析构函数执行过程中，虚函数表指针会在析构函数结束前被重置。对于派生类对象，在派生类析构函数执行时，虚函数表指针会指向派生类的虚函数表；当基类析构函数执行时，虚函数表指针会被更新为指向基类的虚函数表。</p>
-<p><strong>3、左值引用与右值引用的区别？右值引用的意义？</strong></p>
-<p><strong>左值引用与右值引用的区别</strong></p>
-<p>（1）基本概念</p>
+<h2 id="3、左值引用与右值引用的区别？右值引用的意义？"><a href="#3、左值引用与右值引用的区别？右值引用的意义？" class="headerlink" title="3、左值引用与右值引用的区别？右值引用的意义？"></a><strong>3、左值引用与右值引用的区别？右值引用的意义？</strong></h2><h3 id="左值引用与右值引用的区别"><a href="#左值引用与右值引用的区别" class="headerlink" title="左值引用与右值引用的区别"></a><strong>左值引用与右值引用的区别</strong></h3><p>（1）基本概念</p>
 <p>左值：指的是那些可以取地址、有名字的表达式，通常是变量或者对象。例如，普通变量、数组元素、函数返回的左值引用等都是左值。</p>
 <p>右值：指的是那些不能取地址、没有名字的临时对象或字面量。例如，字面常量、函数返回的临时对象等都是右值。</p>
 <p>（2）语法形式</p>
@@ -285,13 +279,11 @@
 <p>右值引用：右值引用可以延长右值的生命周期，使其生命周期和右值引用对象的生命周期相同。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class MyClass &#123;</span><br><span class="line">public:</span><br><span class="line">    MyClass() &#123; std::cout &lt;&lt; &quot;Constructor&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">    ~MyClass() &#123; std::cout &lt;&lt; &quot;Destructor&quot; &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyClass getTempObject() &#123;</span><br><span class="line">    return MyClass();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    MyClass&amp;&amp; rref = getTempObject();</span><br><span class="line">    // 右值的生命周期被延长，直到 rref 离开作用域</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>右值引用的意义</strong></p>
-<p>（1）实现移动语义</p>
+<h3 id="右值引用的意义"><a href="#右值引用的意义" class="headerlink" title="右值引用的意义"></a><strong>右值引用的意义</strong></h3><p>（1）实现移动语义</p>
 <p>移动语义是C++11引入的重要特性，它允许资源（如动态分配的内存）从一个对象转移到另一个对象，而无需进行昂贵的深拷贝。通过定义移动构造函数和移动赋值运算符，可以使用右值引用实现移动语义。</p>
 <p>（2）完美转发<br>完美转发是指在函数模板中，能够将参数以原有的值类别（左值或右值）传递给其他函数。通过使用右值引用和std::forward，可以实现完美转发。</p>
 <p>综上所述，左值引用和右值引用在概念、语法、绑定规则和生命周期等方面存在明显区别，而右值引用主要用于实现移动语义和完美转发，提高程序的性能和灵活性。</p>
-<p><strong>4、C++智能指针有哪些，有什么区别？</strong></p>
-<ol>
+<h2 id="4、C-智能指针有哪些，有什么区别？"><a href="#4、C-智能指针有哪些，有什么区别？" class="headerlink" title="4、C++智能指针有哪些，有什么区别？"></a><strong>4、C++智能指针有哪些，有什么区别？</strong></h2><ol>
 <li>std::auto_ptr（C++98 引入，C++17 弃用）</li>
 </ol>
 <p>std::auto_ptr是最早引入的智能指针，它采用独占所有权模型，即同一时间只能有一个std::auto_ptr指向同一个对象。当std::auto_ptr被销毁或赋值给另一个std::auto_ptr时，它会自动释放所管理的对象。不过，由于其在转移所有权时的一些问题，在 C++17 中已被弃用。</p>
@@ -312,8 +304,7 @@
 <p>安全性：<br>std::auto_ptr在转移所有权时存在一些问题，容易导致悬空指针，已被弃用。<br>std::unique_ptr通过禁止隐式拷贝和赋值，提高了所有权转移的安全性。<br>std::shared_ptr和std::weak_ptr使用引用计数机制，避免了手动管理内存的复杂性。</p>
 <p>引用计数：<br>std::shared_ptr使用引用计数来跟踪对象的引用次数，当引用计数为 0 时自动释放对象。<br>std::weak_ptr不影响对象的引用计数，主要用于解决循环引用问题。</p>
 <p>综上所述，在实际开发中，应优先使用std::unique_ptr和std::shared_ptr，根据具体需求选择合适的智能指针。如果需要独占所有权，使用std::unique_ptr；如果需要共享所有权，使用std::shared_ptr；如果需要解决循环引用问题，使用std::weak_ptr。</p>
-<p><strong>5、sizeof与strlen的差异？</strong></p>
-<p>sizeof：它是一个运算符，并非函数。在编译阶段，编译器就会对sizeof进行计算，确定数据类型或者变量所占用的内存字节数。</p>
+<h2 id="5、sizeof与strlen的差异？"><a href="#5、sizeof与strlen的差异？" class="headerlink" title="5、sizeof与strlen的差异？"></a><strong>5、sizeof与strlen的差异？</strong></h2><p>sizeof：它是一个运算符，并非函数。在编译阶段，编译器就会对sizeof进行计算，确定数据类型或者变量所占用的内存字节数。</p>
 <p>它可以用于计算各种数据类型（如int、char、double等）、变量、数组、指针或者结构体所占用的内存大小。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int num = 10;</span><br><span class="line">    char str[] = &quot;Hello&quot;;</span><br><span class="line">    printf(&quot;Size of int: %zu\n&quot;, sizeof(int));</span><br><span class="line">    printf(&quot;Size of num: %zu\n&quot;, sizeof(num));</span><br><span class="line">    printf(&quot;Size of str: %zu\n&quot;, sizeof(str));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -405,13 +396,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E7%90%86%E4%B8%80%E4%BA%9BC-C-%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E7%9A%84%E9%A2%98%E7%9B%AE%EF%BC%8C%E7%BB%8F%E5%B8%B8%E6%8B%BF%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%90%A7"><span class="nav-number">1.</span> <span class="nav-text">整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81malloc%E3%80%81free%E5%92%8Cnew%E3%80%81delete%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1、malloc、free和new、delete的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E5%92%8C%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E6%8C%87%E9%92%88%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E6%9C%BA%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">2、虚函数表和虚函数表指针的创建时机？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E6%9C%BA"><span class="nav-number">1.2.1.</span> <span class="nav-text">（1）虚函数表的创建时机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E6%8C%87%E9%92%88%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E6%9C%BA"><span class="nav-number">1.2.2.</span> <span class="nav-text">（2）虚函数表指针的创建时机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E6%84%8F%E4%B9%89%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">3、左值引用与右值引用的区别？右值引用的意义？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.3.1.</span> <span class="nav-text">左值引用与右值引用的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">右值引用的意义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">4、C++智能指针有哪些，有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81sizeof%E4%B8%8Estrlen%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%9F"><span class="nav-number">1.5.</span> <span class="nav-text">5、sizeof与strlen的差异？</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Holden</p>
-  <div class="site-description" itemprop="description">我是一位来自中国的工程师，这是我的个人博客，用于记录工作与生活</div>
+  <div class="site-description" itemprop="description">我是一位来自中国的软件工程师，这是我的个人博客，用于记录工作与生活，谢谢关注哦~</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
