@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"holden.baby","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="最近调试了一下多光谱相机，发现调节USB彩色摄像头曝光参数是用OpenCV写的，我的OpenCV版本是4.5.4，于是记录一下如何调为手动曝光，以便查阅。 123456&#x2F;&#x2F; win系统VS2019平台测试通过cv_cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 0.25); &#x2F;&#x2F; 设置手动曝光idc_edit_exp_value_set &#x3D; cap.get(cv::CAP_">
+  <meta name="description" content="在MFC应用程序中，使用 AfxGetMainWnd()-&gt;SendMessage(WM_CLOSE); 通常可以正常退出程序，但具体行为取决于主窗口的消息处理逻辑。以下是详细分析：  基本原理AfxGetMainWnd()：获取应用程序主窗口的指针（通常是 CFrameWnd 或其派生类）。  WM_CLOSE 消息：向主窗口发送关闭请求，触发窗口的关闭流程。  默认行为默认处理流程：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenCV相机曝光参数设置">
-<meta property="og:url" content="https://holden.baby/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/index.html">
+<meta property="og:title" content="MFC程序退出机制分析">
+<meta property="og:url" content="https://holden.baby/2025/05/15/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Holden Blog">
-<meta property="og:description" content="最近调试了一下多光谱相机，发现调节USB彩色摄像头曝光参数是用OpenCV写的，我的OpenCV版本是4.5.4，于是记录一下如何调为手动曝光，以便查阅。 123456&#x2F;&#x2F; win系统VS2019平台测试通过cv_cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 0.25); &#x2F;&#x2F; 设置手动曝光idc_edit_exp_value_set &#x3D; cap.get(cv::CAP_">
+<meta property="og:description" content="在MFC应用程序中，使用 AfxGetMainWnd()-&gt;SendMessage(WM_CLOSE); 通常可以正常退出程序，但具体行为取决于主窗口的消息处理逻辑。以下是详细分析：  基本原理AfxGetMainWnd()：获取应用程序主窗口的指针（通常是 CFrameWnd 或其派生类）。  WM_CLOSE 消息：向主窗口发送关闭请求，触发窗口的关闭流程。  默认行为默认处理流程：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-05-12T02:38:11.000Z">
-<meta property="article:modified_time" content="2025-05-14T05:37:20.852Z">
+<meta property="article:published_time" content="2025-05-15T06:24:29.000Z">
+<meta property="article:modified_time" content="2025-05-15T06:41:17.205Z">
 <meta property="article:author" content="Holden">
-<meta property="article:tag" content="OpenCV手动曝光">
+<meta property="article:tag" content="MFC程序退出">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://holden.baby/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/">
+<link rel="canonical" href="https://holden.baby/2025/05/15/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>OpenCV相机曝光参数设置 | Holden Blog</title>
+  <title>MFC程序退出机制分析 | Holden Blog</title>
   
 
 
@@ -178,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/15/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          OpenCV相机曝光参数设置
+          MFC程序退出机制分析
         </h1>
 
         <div class="post-meta">
@@ -200,19 +200,13 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-05-12 10:38:11" itemprop="dateCreated datePublished" datetime="2025-05-12T10:38:11+08:00">2025-05-12</time>
+              <time title="创建时间：2025-05-15 14:24:29 / 修改时间：14:41:17" itemprop="dateCreated datePublished" datetime="2025-05-15T14:24:29+08:00">2025-05-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-14 13:37:20" itemprop="dateModified" datetime="2025-05-14T13:37:20+08:00">2025-05-14</time>
-              </span>
 
           
-            <span id="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="OpenCV相机曝光参数设置" title="阅读次数">
+            <span id="/2025/05/15/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/" class="post-meta-item leancloud_visitors" data-flag-title="MFC程序退出机制分析" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -227,8 +221,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/05/15/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/15/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -243,75 +237,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近调试了一下多光谱相机，发现调节USB彩色摄像头曝光参数是用OpenCV写的，我的OpenCV版本是4.5.4，于是记录一下如何调为手动曝光，以便查阅。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// win系统VS2019平台测试通过</span></span><br><span class="line">cv_cap.<span class="built_in">set</span>(cv::CAP_PROP_AUTO_EXPOSURE, <span class="number">0.25</span>); <span class="comment">// 设置手动曝光</span></span><br><span class="line"></span><br><span class="line">idc_edit_exp_value_set = cap.<span class="built_in">get</span>(cv::CAP_PROP_EXPOSURE); <span class="comment">// 获取摄像头曝光</span></span><br><span class="line"></span><br><span class="line">cv_cap.<span class="built_in">set</span>(CV_CAP_PROP_EXPOSURE, <span class="number">-13</span>);  <span class="comment">// 设置曝光，对应的曝光时间见下表</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<table>
-<thead>
-<tr>
-<th>OpenCV_exposure</th>
-<th>快门时间ms</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-1</td>
-<td>640</td>
-</tr>
-<tr>
-<td>-2</td>
-<td>320</td>
-</tr>
-<tr>
-<td>-3</td>
-<td>160</td>
-</tr>
-<tr>
-<td>-4</td>
-<td>80</td>
-</tr>
-<tr>
-<td>-5</td>
-<td>40</td>
-</tr>
-<tr>
-<td>-6</td>
-<td>20</td>
-</tr>
-<tr>
-<td>-7</td>
-<td>10</td>
-</tr>
-<tr>
-<td>-8</td>
-<td>5</td>
-</tr>
-<tr>
-<td>-9</td>
-<td>2.5</td>
-</tr>
-<tr>
-<td>-10</td>
-<td>1.25</td>
-</tr>
-<tr>
-<td>-11</td>
-<td>0.625</td>
-</tr>
-<tr>
-<td>-12</td>
-<td>0.3125</td>
-</tr>
-<tr>
-<td>-13</td>
-<td>0.15625</td>
-</tr>
-<tr>
-<td>-14</td>
-<td>0.078125</td>
-</tr>
-</tbody></table>
-<p>其他的设置参数函数：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cap.<span class="built_in">set</span>(cv.CAP_PROP_FRAME_WIDTH, <span class="number">1080</span>)    <span class="comment">//宽度</span></span><br><span class="line">cap.<span class="built_in">set</span>(cv.CAP_PROP_FRAME_HEIGHT, <span class="number">720</span>)    <span class="comment">//高度</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_FPS, <span class="number">30</span>)         <span class="comment">//帧数</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_BRIGHTNESS, <span class="number">0.1</span>)     <span class="comment">//亮度</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_CONTRAST, <span class="number">40</span>)     <span class="comment">//对比度</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_SATURATION, <span class="number">50</span>)   <span class="comment">//饱和度</span></span><br><span class="line">cap.<span class="built_in">set</span>(CV_CAP_PROP_HUE, <span class="number">50</span>)         <span class="comment">//色调</span></span><br></pre></td></tr></table></figure>
+        <p>在MFC应用程序中，使用 AfxGetMainWnd()-&gt;SendMessage(WM_CLOSE); 通常可以正常退出程序，但具体行为取决于主窗口的消息处理逻辑。以下是详细分析：</p>
+<ol>
+<li>基本原理<br>AfxGetMainWnd()：获取应用程序主窗口的指针（通常是 CFrameWnd 或其派生类）。</li>
+</ol>
+<p>WM_CLOSE 消息：向主窗口发送关闭请求，触发窗口的关闭流程。</p>
+<ol start="2">
+<li>默认行为<br>默认处理流程：</li>
+</ol>
+<p>主窗口收到 WM_CLOSE 后，MFC 默认调用 CFrameWnd::OnClose()。</p>
+<p>OnClose() 会尝试销毁窗口（DestroyWindow()）。</p>
+<p>主窗口销毁后，MFC 的 CWinApp::Run() 检测到没有活动的主窗口，退出消息循环，触发程序终止。</p>
+<ol start="3">
+<li>可能的问题<br>自定义 OnClose()：</li>
+</ol>
+<p>如果主窗口重写了 OnClose() 方法（例如添加了保存确认对话框），可能导致未真正销毁窗口。</p>
+<p>此时需确保自定义逻辑最终调用 DestroyWindow() 或基类的 CFrameWnd::OnClose()。</p>
+<p>其他窗口的存在：</p>
+<p>若存在未关闭的非模态窗口或子窗口（如MDI子窗口），程序可能不会立即退出。</p>
+<p>MFC 默认在单文档（SDI）或多文档（MDI）应用中，关闭主窗口会退出程序，但需检查 CWinApp::m_pMainWnd 是否指向正确的主框架。</p>
+<ol start="4">
+<li>替代方法<br>直接退出应用程序：</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AfxGetApp</span>()-&gt;<span class="built_in">ExitInstance</span>();  <span class="comment">// 直接调用应用程序退出</span></span><br></pre></td></tr></table></figure>
+<p>注意：此方法会跳过窗口关闭的清理流程（如 OnClose() 或 OnDestroy()）。</p>
+<p>异步关闭（推荐）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AfxGetMainWnd</span>()-&gt;<span class="built_in">PostMessage</span>(WM_CLOSE);  <span class="comment">// 异步发送，避免潜在死锁</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>验证与安全性<br>空指针检查：</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (CWnd* pMainWnd = <span class="built_in">AfxGetMainWnd</span>()) &#123;</span><br><span class="line">    pMainWnd-&gt;<span class="built_in">SendMessage</span>(WM_CLOSE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>确保主窗口未被提前销毁。</p>
+<ol start="6">
+<li>结论<br>标准情况下：AfxGetMainWnd()-&gt;SendMessage(WM_CLOSE); 能正确退出程序，前提是主窗口未拦截或修改默认关闭逻辑。</li>
+</ol>
+<p>需注意：在复杂场景（如自定义窗口关闭行为、多窗口共存）中，需额外验证主窗口销毁是否触发程序终止。</p>
+<p>附：流程图</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发送 WM_CLOSE → 触发 <span class="built_in">OnClose</span>() → <span class="built_in">DestroyWindow</span>() → 主窗口销毁 → CWinApp 检测无主窗口 → 退出消息循环 → 程序终止</span><br></pre></td></tr></table></figure>
+
+<p>附：关闭AfxBeginThread线程</p>
+<pre><code><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3. 等待线程安全退出</span></span><br><span class="line"><span class="keyword">if</span> (m_Thread_FTDI != <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 等待线程结束，增加超时时间</span></span><br><span class="line">	DWORD dwRet = <span class="built_in">WaitForSingleObject</span>(m_Thread_FTDI-&gt;m_hThread, <span class="number">3000</span>); <span class="comment">// 等待3秒</span></span><br><span class="line">	<span class="keyword">if</span> (dwRet == WAIT_TIMEOUT)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 如果等待超时，强制终止线程</span></span><br><span class="line">		<span class="built_in">TerminateThread</span>(m_Thread_FTDI-&gt;m_hThread, <span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">          <span class="keyword">if</span> (dwRet == WAIT_OBJECT_0)</span><br><span class="line">    &#123;</span><br><span class="line">	    <span class="built_in">AfxMessageBox</span>(<span class="built_in">TEXT</span>(<span class="string">&quot;线程正常退出&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">	m_Thread_FTDI = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+
     </div>
 
     
@@ -320,7 +287,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/OpenCV%E6%89%8B%E5%8A%A8%E6%9B%9D%E5%85%89/" rel="tag"># OpenCV手动曝光</a>
+              <a href="/tags/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA/" rel="tag"># MFC程序退出</a>
           </div>
 
         
@@ -329,13 +296,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/05/08/C++Interview%20questions1/" rel="prev" title="C/C++面试题目整理（1）">
-      <i class="fa fa-chevron-left"></i> C/C++面试题目整理（1）
+    <a href="/2025/05/14/%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA/" rel="prev" title="多光谱相机">
+      <i class="fa fa-chevron-left"></i> 多光谱相机
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2025/05/14/%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA/" rel="next" title="多光谱相机">
-      多光谱相机 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
