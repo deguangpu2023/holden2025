@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HcrqOuyM0FrMClnEvg_tOK3_HKjKuSTWitSgWMJnOZQ">
+  <meta name="baidu-site-verification" content="codeva-M5QM9dE4xL">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"holden.baby","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1. move函数在C++中，移动语义是为了解决传统的拷贝构造函数和赋值运算符在传递临时对象时效率低下的问题。通过使用move函数模板类，程序员可以明确地表达自己的意图，将资源的所有权从一个对象转移到另一个对象，避免不必要的数据拷贝，提高程序的性能。在实现move函数模板类时，需要考虑对象的生命周期管理、资源的移动和释放等问题，以确保程序的正确性和高效性。std::move() 是 C++ 标准库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++面试题目整理（2）">
+<meta property="og:url" content="https://holden.baby/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/index.html">
+<meta property="og:site_name" content="Holden Blog">
+<meta property="og:description" content="1. move函数在C++中，移动语义是为了解决传统的拷贝构造函数和赋值运算符在传递临时对象时效率低下的问题。通过使用move函数模板类，程序员可以明确地表达自己的意图，将资源的所有权从一个对象转移到另一个对象，避免不必要的数据拷贝，提高程序的性能。在实现move函数模板类时，需要考虑对象的生命周期管理、资源的移动和释放等问题，以确保程序的正确性和高效性。std::move() 是 C++ 标准库">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-05-17T06:45:24.000Z">
+<meta property="article:modified_time" content="2025-05-17T07:46:52.954Z">
+<meta property="article:author" content="Holden">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://holden.baby/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>C++面试题目整理（2） | Holden Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b6009e1dfd1dbab3631514c04ed19996";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Holden Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">逐梦山海 / Hello World~</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Holden">
+      <meta itemprop="description" content="我是一位来自中国的软件工程师，这是我的个人博客，用于记录工作与生活，谢谢关注哦~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Holden Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++面试题目整理（2）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-05-17 14:45:24 / Modified: 15:46:52" itemprop="dateCreated datePublished" datetime="2025-05-17T14:45:24+08:00">2025-05-17</time>
+            </span>
+
+          
+            <span id="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="C++面试题目整理（2）" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-move函数"><a href="#1-move函数" class="headerlink" title="1. move函数"></a><strong>1. move函数</strong></h2><p>在C++中，移动语义是为了解决传统的拷贝构造函数和赋值运算符在传递临时对象时效率低下的问题。通过使用move函数模板类，程序员可以明确地表达自己的意图，将资源的所有权从一个对象转移到另一个对象，避免不必要的数据拷贝，提高程序的性能。在实现move函数模板类时，需要考虑对象的生命周期管理、资源的移动和释放等问题，以确保程序的正确性和高效性。<br>std::move() 是 C++ 标准库中的一个函数，它位于 <utility> 头文件中。它用于将对象的所有权从一个对象转移给另一个对象。<br>当我们需要将某个对象转移（而不是复制）到另一个对象时，可以使用 std::move() 函数来实现高效的资源管理。通过使用 std::move()，编译器将不再视图拷贝该对象，而是将其内部状态的所有权转移到新的目标对象上。<br>使用 std::move() 的一般步骤如下：<br>引入 <utility> 头文件：#include <utility><br>使用 std::move() 函数进行转移：target &#x3D; std::move(source);<br>以下是一些关键点和注意事项：<br>std::move() 并不实际移动任何数据，它只是将传递给它的参数标记为可被移动（右值）。这意味着我们应该确保在调用 std::move() 之前，源对象不再被使用。<br>被标记为可移动的右值引用可以通过 Rvalue 引用来接收，并且可以使用该引用访问原始源对象的内容。<br>在转移完成后，源对象处于有效但未定义状态，通常会被设置为默认构造状态或 nullptr 等合理值。因此，在转移后，请不要假设源对象保持原有值。<br>对于支持移动语义的类，可以通过实现自定义的移动构造函数和移动赋值操作符来控制转移过程。</p>
+<span id="more"></span>
+
+<h2 id="2-类型转换"><a href="#2-类型转换" class="headerlink" title="2. 类型转换"></a><strong>2. 类型转换</strong></h2><p>类型转换是将一个数据类型的值转换为另一个数据类型的过程。在C++中，有多种类型转换方式：<br>隐式类型转换（Implicit Conversion）：编译器会自动进行的类型转换。例如，将一个整数赋值给一个浮点数变量，或者将一个较小范围的整数赋值给较大范围的整数变量。<br>显式类型转换（Explicit Conversion）：需要使用特定的语法来指明要进行类型转换。<br>主要有以下几种形式：<br>C风格的强制类型转换：使用括号将目标类型写在被转换表达式之前。例如，(int) 3.14 将浮点数 3.14 转换为整数。<br>static_cast：用于基本数据类型之间的显式转换。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(<span class="number">3.14</span>);</span><br></pre></td></tr></table></figure>
+<p>将浮点数 3.14 转换为整数。<br>dynamic_cast：用于类层次间的向下转型和运行时检查。用于具有虚函数的类及其派生类之间的指针或引用。<br>const_cast：用于去除常量属性。例如，去除 const 修饰符后修改常量值。<br>reinterpret_cast：进行底层位模式重新解释的转型。</p>
+<h2 id="3-如果new了之后出了问题直接return。会导致内存泄漏。怎么办（智能指针，raii）"><a href="#3-如果new了之后出了问题直接return。会导致内存泄漏。怎么办（智能指针，raii）" class="headerlink" title="3. 如果new了之后出了问题直接return。会导致内存泄漏。怎么办（智能指针，raii）"></a><strong>3. 如果new了之后出了问题直接return。会导致内存泄漏。怎么办（智能指针，raii）</strong></h2><p>正确的做法是使用智能指针来管理内存，通过RAII（资源获取即初始化）的机制来确保资源的及时释放，避免内存泄漏。<br>智能指针是C++中的一种数据类型，可以模拟原始指针的行为，但具有自动释放内存的功能。在面对可能出现异常导致提前返回的情况下，使用智能指针能够确保在任何情况下都能正确释放内存，从而避免内存泄漏。<br>内存泄漏是指程序中动态分配的内存在不再使用时没有被释放，导致系统内存耗尽的问题。使用智能指针可以有效避免内存泄漏，其中最常用的智能指针包括std::shared_ptr和std::unique_ptr。std::shared_ptr允许多个指针共享同一块内存，会维护一个引用计数，当引用计数为0时自动释放内存；std::unique_ptr则独占所指向的对象，保证了独占所有权的语义。在编程中，应该尽量使用智能指针来管理动态内存，以提高程序的健壮性和可维护性。</p>
+<h2 id="4-const引用和指针的区别？"><a href="#4-const引用和指针的区别？" class="headerlink" title="4. const引用和指针的区别？"></a><strong>4. const引用和指针的区别？</strong></h2><p>const引用在声明时需要同时初始化，而且在使用时不能修改所引用变量的值，相当于给变量加上只读属性。指针可以通过解引用来修改所指向变量的值，但需要注意空指针和野指针的问题。<br>const引用和指针都是用于处理常量数据的方式，但它们有一些区别：<br>语法：const引用使用&amp;符号表示，而指针使用<em>符号表示。<br>初始化要求：const引用必须在定义时初始化，并且只能绑定到与其类型相同或可转换为其类型的对象。指针可以先声明再初始化，并且可以指向任意类型的对象。<br>空值（null）：指针可以为空值（nullptr），即不指向任何对象。而const引用必须始终引用一个有效的对象。<br>可变性：通过const引用无法修改所引用的对象，这种约束是由编译器强制执行的。而通过指针，可以通过解引用操作符(</em>)来修改所指向的对象。<br>对象拷贝：对于大型对象来说，通过const引用传递参数会更高效，因为不需要进行拷贝操作。而指针作为函数参数时需要进行拷贝。</p>
+<h2 id="5-C-中struct-和class区别？"><a href="#5-C-中struct-和class区别？" class="headerlink" title="5. C++ 中struct 和class区别？"></a><strong>5. C++ 中struct 和class区别？</strong></h2><p>在C++中，struct和class在语法上是可以互换使用的，唯一的区别在于默认的访问权限。在struct中，默认的成员访问权限是public，而在class中，默认的成员访问权限是private。<br>在C++中，struct和class是用于定义自定义数据类型的关键字，它们有一些区别：<br>默认访问权限：在struct中，默认的成员访问权限为公共（public），而在class中，默认的成员访问权限为私有（private）。<br>继承方式：当使用关键字struct定义类时，继承默认为公共继承；而使用关键字class定义类时，默认为私有继承。<br>类型别名：在C++11及以后的标准中，可以使用关键字using给结构体或类定义别名。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">MyStruct</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> AliasStruct = MyStruct;  <span class="comment">// 结构体别名</span></span><br><span class="line"><span class="keyword">using</span> AliasClass = MyClass;    <span class="comment">// 类别名</span></span><br></pre></td></tr></table></figure>
+<p>使用习惯：传统上，人们倾向于使用 struct 来表示简单的数据结构，其成员通常都是公共的，并且不包含复杂的方法。而 class 则更多用于设计复杂的对象和类层次结构，并且强调封装性、隐藏内部实现细节等。</p>
+<h2 id="6-如何防止一个头文件-include-多次？"><a href="#6-如何防止一个头文件-include-多次？" class="headerlink" title="6. 如何防止一个头文件 include 多次？"></a><strong>6. 如何防止一个头文件 include 多次？</strong></h2><p>头文件被多次包含可能会导致重复定义，造成编译错误。使用头文件保护宏可以有效避免这种情况发生。头文件保护宏的机制是在预处理阶段检查是否已经定义了特定的宏，如果已经定义则跳过后续内容，否则继续包含头文件内容。这种机制可以确保头文件只被包含一次，避免了重复定义的问题。以下是一个简单的示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plaintext</span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> EXAMPLE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> EXAMPLE_H</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 头文件内容</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="7-C-中的map和unordered-map的区别和使用场景"><a href="#7-C-中的map和unordered-map的区别和使用场景" class="headerlink" title="7. C++中的map和unordered_map的区别和使用场景"></a><strong>7. C++中的map和unordered_map的区别和使用场景</strong></h2><p>C++中的map和unordered_map的区别在于底层数据结构不同，map是基于红黑树实现的有序映射，而unordered_map是基于哈希表实现的无序映射。map适合有序性要求高的场景，而unordered_map适合查找速度要求高的场景。 它们之间有以下区别和不同的使用场景：<br>存储方式：map 是基于红黑树实现的有序容器，而 unordered_map 则是基于哈希表实现的无序容器。<br>查找速度：由于哈希表具有 O(1) 的平均查找复杂度，相比之下，红黑树具有 O(log n) 的查找复杂度。因此，在大多数情况下，unordered_map 的查找速度更快。<br>顺序性：map 中的元素按照键值进行排序，并保持着固定的顺序；而 unordered_map 中元素的顺序是根据哈希函数计算得到的结果，并没有特定的顺序。<br>内存占用：由于哈希表需要额外存储桶来处理碰撞冲突，所以通常情况下 unordered_map 占用的内存会更多一些，而 map 只需要额外存储节点即可。<br>在选择使用哪种容器时可以考虑以下几点：<br>如果需要按照键值排序并且能够保持稳定顺序，则选择 map<br>如果对元素插入和查询速度要求较高，并且不关心顺序，则选择 unordered_map<br>如果对内存使用量非常敏感，并且可以接受较低的查询性能，可以选择 map</p>
+<h2 id="8-lambda表达式的理解，它可以捕获哪些类型？"><a href="#8-lambda表达式的理解，它可以捕获哪些类型？" class="headerlink" title="8. lambda表达式的理解，它可以捕获哪些类型？"></a><strong>8. lambda表达式的理解，它可以捕获哪些类型？</strong></h2><p>lambda表达式是一种匿名函数，它可以捕获其所在作用域中的局部变量和全局变量，是C++11引入的一种函数对象创建方式，它可以在需要函数对象的地方使用，例如作为参数传递给算法函数、用于定义函数对象变量等。<br>Lambda表达式的基本语法如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[capture list](parameters) -&gt; return_type &#123; </span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中：<br>capture list 是可选项，用于捕获外部变量。<br>parameters 是参数列表。<br>return_type 是返回类型。<br>{} 包含了函数体。<br>Lambda表达式可以捕获以下几种类型的外部变量：<br>值捕获（value capture）：通过在捕获列表中以值方式进行捕获。例如：[x]，表示以值方式捕获变量x。<br>引用捕获（reference capture）：通过在捕获列表中以引用方式进行捕获。例如：[&amp;y]，表示以引用方式捕获变量y。<br>隐式捕获（implicit capture）：省略了具体的变量名，在编译器根据上下文推断要进行哪种类型的捕获。例如：[&#x3D;] 表示按值方式隐式捕获所有外部变量； [&amp;] 表示按引用方式隐式捕获所有外部变量。<br>在lambda表达式内部可以使用被捕获的外部变量，并且根据捕获方式的不同，有不同的语义。需要注意的是，被值捕获的变量在lambda表达式内部是不可修改的（除非使用mutable修饰符）；而被引用捕获的变量可以修改。</p>
+<h2 id="9-gcc编译的过程"><a href="#9-gcc编译的过程" class="headerlink" title="9. gcc编译的过程"></a><strong>9. gcc编译的过程</strong></h2><p>GCC（GNU Compiler Collection）是一款流行的开源编译器，用于将源代码转换为可执行程序。<br>下面是GCC编译过程的简要步骤：<br>预处理（Preprocessing）：预处理阶段通过处理预处理指令，如#include和宏定义等，对源文件进行展开和替换。结果生成一个扩展名为”.i”的中间文件。<br>编译（Compilation）：编译阶段将预处理后的代码翻译成汇编语言代码。这个阶段主要包括词法分析、语法分析、语义分析和优化等步骤。结果生成一个扩展名为”.s”的汇编代码文件。<br>汇编（Assembly）：汇编阶段将汇编语言代码转化为机器码指令，并生成一个扩展名为”.o”的目标文件。<br>链接（Linking）：链接阶段将目标文件与必要的库文件进行合并，以及解决符号引用和地址重定位等问题。最终生成可执行程序或者共享库文件。<br>在链接阶段，还可以包含以下几个子过程：<br>符号解析（Symbol resolution）：确定所有符号引用的实际地址。<br>地址重定位（Address relocation）：根据实际地址修改目标文件中的地址值。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          </div>
+        
+        <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/05/15/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/" rel="prev" title="MFC程序退出机制分析">
+      <i class="fa fa-chevron-left"></i> MFC程序退出机制分析
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-move%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">1. move函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.</span> <span class="nav-text">2. 类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%A6%82%E6%9E%9Cnew%E4%BA%86%E4%B9%8B%E5%90%8E%E5%87%BA%E4%BA%86%E9%97%AE%E9%A2%98%E7%9B%B4%E6%8E%A5return%E3%80%82%E4%BC%9A%E5%AF%BC%E8%87%B4%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E3%80%82%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%88%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%EF%BC%8Craii%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">3. 如果new了之后出了问题直接return。会导致内存泄漏。怎么办（智能指针，raii）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-const%E5%BC%95%E7%94%A8%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">4. const引用和指针的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-C-%E4%B8%ADstruct-%E5%92%8Cclass%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">5. C++ 中struct 和class区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E4%B8%80%E4%B8%AA%E5%A4%B4%E6%96%87%E4%BB%B6-include-%E5%A4%9A%E6%AC%A1%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">6. 如何防止一个头文件 include 多次？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-C-%E4%B8%AD%E7%9A%84map%E5%92%8Cunordered-map%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">7.</span> <span class="nav-text">7. C++中的map和unordered_map的区别和使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E5%AE%83%E5%8F%AF%E4%BB%A5%E6%8D%95%E8%8E%B7%E5%93%AA%E4%BA%9B%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">8. lambda表达式的理解，它可以捕获哪些类型？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-gcc%E7%BC%96%E8%AF%91%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">9.</span> <span class="nav-text">9. gcc编译的过程</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Holden</p>
+  <div class="site-description" itemprop="description">我是一位来自中国的软件工程师，这是我的个人博客，用于记录工作与生活，谢谢关注哦~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deguangpu2023" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deguangpu2023" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:294284364@qq.com" title="E-Mail → mailto:294284364@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://holden.baby/" title="https:&#x2F;&#x2F;holden.baby&#x2F;">Holden Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Holden</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'zUvusKGeQb1DBgAstjWgVfH6-gzGzoHsz',
+      appKey     : 'BOjN0CSgH90Dfdsrlh61xeP5',
+      placeholder: "just go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
