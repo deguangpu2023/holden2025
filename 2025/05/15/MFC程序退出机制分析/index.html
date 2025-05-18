@@ -30,7 +30,7 @@
 <meta property="og:description" content="在MFC应用程序中，使用 AfxGetMainWnd()-&gt;SendMessage(WM_CLOSE); 通常可以正常退出程序，但具体行为取决于主窗口的消息处理逻辑。以下是详细分析：  基本原理AfxGetMainWnd()：获取应用程序主窗口的指针（通常是 CFrameWnd 或其派生类）。WM_CLOSE 消息：向主窗口发送关闭请求，触发窗口的关闭流程。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-05-15T06:24:29.000Z">
-<meta property="article:modified_time" content="2025-05-16T03:48:19.110Z">
+<meta property="article:modified_time" content="2025-05-18T04:21:21.814Z">
 <meta property="article:author" content="Holden">
 <meta property="article:tag" content="MFC程序退出">
 <meta name="twitter:card" content="summary">
@@ -208,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-05-16 11:48:19" itemprop="dateModified" datetime="2025-05-16T11:48:19+08:00">2025-05-16</time>
+                <time title="Modified: 2025-05-18 12:21:21" itemprop="dateModified" datetime="2025-05-18T12:21:21+08:00">2025-05-18</time>
               </span>
 
           
@@ -245,12 +245,11 @@
       
         <p>在MFC应用程序中，使用 AfxGetMainWnd()-&gt;SendMessage(WM_CLOSE); 通常可以正常退出程序，但具体行为取决于主窗口的消息处理逻辑。以下是详细分析：</p>
 <ol>
-<li>基本原理<br>AfxGetMainWnd()：获取应用程序主窗口的指针（通常是 CFrameWnd 或其派生类）。<br>WM_CLOSE 消息：向主窗口发送关闭请求，触发窗口的关闭流程。</li>
-</ol>
+<li><p>基本原理<br>AfxGetMainWnd()：获取应用程序主窗口的指针（通常是 CFrameWnd 或其派生类）。<br>WM_CLOSE 消息：向主窗口发送关闭请求，触发窗口的关闭流程。</p>
 <span id="more"></span>
-
-<ol start="2">
-<li>默认行为<br>默认处理流程：</li>
+</li>
+<li><p>默认行为<br>默认处理流程：</p>
+</li>
 </ol>
 <p>主窗口收到 WM_CLOSE 后，MFC 默认调用 CFrameWnd::OnClose()。</p>
 <p>OnClose() 会尝试销毁窗口（DestroyWindow()）。</p>
@@ -309,8 +308,8 @@
       <i class="fa fa-chevron-left"></i> 9通道多光谱相机
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/" rel="next" title="C++面试题目整理（2）">
-      C++面试题目整理（2） <i class="fa fa-chevron-right"></i>
+    <a href="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/" rel="next" title="C/C++面试题目整理（2）">
+      C/C++面试题目整理（2） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
