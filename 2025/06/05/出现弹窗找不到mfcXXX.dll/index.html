@@ -22,20 +22,23 @@
     var CONFIG = {"hostname":"holden.baby","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在目标检测任务中，损失函数对检测精度和训练稳定性有重要影响。针对YOLO系列中WIoU（Wise IoU）和CIoU（Complete IoU）两种边界框损失函数的对比分析如下：    维度 CIoU WIoU (v1&#x2F;v2)    优化目标 位置+形状 位置+动态样本权重   小目标检测 一般 ✅ 更优（抑制低质量样本干扰）   训练稳定性 需谨慎设置学习率 ✅ 更鲁棒（自适应梯度调整">
+  <meta name="description" content="MFC在旧电脑正常运行，但放在新电脑上，出现弹窗找不到mfcXXX.dll，这大概率是没有安装MFC运行库的原因，你可以下载并安装Visual C++ 2019运行库来解决这个问题，点击普通下载 勾选同意，点击安装即可，MFC软件正常打开。 更多文章： 9通道多光谱相机 C++面试题目整理（1） C++面试题目整理（2） MFC程序退出机制分析 OpenCV相机曝光参数设置 YOLO的WIoU和C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YOLO的WIoU和CIoU哪个更好？">
-<meta property="og:url" content="https://holden.baby/2025/05/26/YOLO%E7%9A%84WIoU%E5%92%8CCIoU%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%9F/index.html">
+<meta property="og:title" content="出现弹窗找不到mfcXXX.dll">
+<meta property="og:url" content="https://holden.baby/2025/06/05/%E5%87%BA%E7%8E%B0%E5%BC%B9%E7%AA%97%E6%89%BE%E4%B8%8D%E5%88%B0mfcXXX.dll/index.html">
 <meta property="og:site_name" content="Holden Blog">
-<meta property="og:description" content="在目标检测任务中，损失函数对检测精度和训练稳定性有重要影响。针对YOLO系列中WIoU（Wise IoU）和CIoU（Complete IoU）两种边界框损失函数的对比分析如下：    维度 CIoU WIoU (v1&#x2F;v2)    优化目标 位置+形状 位置+动态样本权重   小目标检测 一般 ✅ 更优（抑制低质量样本干扰）   训练稳定性 需谨慎设置学习率 ✅ 更鲁棒（自适应梯度调整">
+<meta property="og:description" content="MFC在旧电脑正常运行，但放在新电脑上，出现弹窗找不到mfcXXX.dll，这大概率是没有安装MFC运行库的原因，你可以下载并安装Visual C++ 2019运行库来解决这个问题，点击普通下载 勾选同意，点击安装即可，MFC软件正常打开。 更多文章： 9通道多光谱相机 C++面试题目整理（1） C++面试题目整理（2） MFC程序退出机制分析 OpenCV相机曝光参数设置 YOLO的WIoU和C">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-05-26T02:15:01.000Z">
-<meta property="article:modified_time" content="2025-05-26T03:52:07.200Z">
+<meta property="og:image" content="https://holden.baby/images/6.png">
+<meta property="og:image" content="https://holden.baby/images/5.png">
+<meta property="article:published_time" content="2025-06-05T04:28:48.000Z">
+<meta property="article:modified_time" content="2025-06-05T10:44:43.182Z">
 <meta property="article:author" content="Holden">
-<meta property="article:tag" content="YOLO">
+<meta property="article:tag" content="MFC运行库">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://holden.baby/images/6.png">
 
-<link rel="canonical" href="https://holden.baby/2025/05/26/YOLO%E7%9A%84WIoU%E5%92%8CCIoU%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%9F/">
+<link rel="canonical" href="https://holden.baby/2025/06/05/%E5%87%BA%E7%8E%B0%E5%BC%B9%E7%AA%97%E6%89%BE%E4%B8%8D%E5%88%B0mfcXXX.dll/">
 
 
 <script id="page-configurations">
@@ -48,7 +51,7 @@
   };
 </script>
 
-  <title>YOLO的WIoU和CIoU哪个更好？ | Holden Blog</title>
+  <title>出现弹窗找不到mfcXXX.dll | Holden Blog</title>
   
 
 
@@ -178,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/26/YOLO%E7%9A%84WIoU%E5%92%8CCIoU%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%9F/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/06/05/%E5%87%BA%E7%8E%B0%E5%BC%B9%E7%AA%97%E6%89%BE%E4%B8%8D%E5%88%B0mfcXXX.dll/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,7 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          YOLO的WIoU和CIoU哪个更好？
+          出现弹窗找不到mfcXXX.dll
         </h1>
 
         <div class="post-meta">
@@ -202,20 +205,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2025-05-26 10:15:01 / Modified: 11:52:07" itemprop="dateCreated datePublished" datetime="2025-05-26T10:15:01+08:00">2025-05-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/YOLO/" itemprop="url" rel="index"><span itemprop="name">YOLO</span></a>
-                </span>
+              <time title="Created: 2025-06-05 12:28:48 / Modified: 18:44:43" itemprop="dateCreated datePublished" datetime="2025-06-05T12:28:48+08:00">2025-06-05</time>
             </span>
 
           
-            <span id="/2025/05/26/YOLO%E7%9A%84WIoU%E5%92%8CCIoU%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="YOLO的WIoU和CIoU哪个更好？" title="Views">
+            <span id="/2025/06/05/%E5%87%BA%E7%8E%B0%E5%BC%B9%E7%AA%97%E6%89%BE%E4%B8%8D%E5%88%B0mfcXXX.dll/" class="post-meta-item leancloud_visitors" data-flag-title="出现弹窗找不到mfcXXX.dll" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -230,8 +224,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2025/05/26/YOLO%E7%9A%84WIoU%E5%92%8CCIoU%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%9F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/26/YOLO%E7%9A%84WIoU%E5%92%8CCIoU%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%9F/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/06/05/%E5%87%BA%E7%8E%B0%E5%BC%B9%E7%AA%97%E6%89%BE%E4%B8%8D%E5%88%B0mfcXXX.dll/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/06/05/%E5%87%BA%E7%8E%B0%E5%BC%B9%E7%AA%97%E6%89%BE%E4%B8%8D%E5%88%B0mfcXXX.dll/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -246,55 +240,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在目标检测任务中，损失函数对检测精度和训练稳定性有重要影响。针对YOLO系列中WIoU（Wise IoU）和CIoU（Complete IoU）两种边界框损失函数的对比分析如下：</p>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>CIoU</th>
-<th>WIoU (v1&#x2F;v2)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>优化目标</td>
-<td>位置+形状</td>
-<td>位置+动态样本权重</td>
-</tr>
-<tr>
-<td>小目标检测</td>
-<td>一般</td>
-<td>✅ 更优（抑制低质量样本干扰）</td>
-</tr>
-<tr>
-<td>训练稳定性</td>
-<td>需谨慎设置学习率</td>
-<td>✅ 更鲁棒（自适应梯度调整）</td>
-</tr>
-<tr>
-<td>计算复杂度</td>
-<td>低</td>
-<td>略高（需计算动态权重）</td>
-</tr>
-<tr>
-<td>超参数敏感性</td>
-<td>较高（需调 α 系数）</td>
-<td>较低</td>
-</tr>
-<tr>
-<td>工业部署兼容性</td>
-<td>✅ 广泛支持</td>
-<td>需自定义实现</td>
-</tr>
-</tbody></table>
-<span id="more"></span>
-<p>WIoU v3相比v1和v2有以下优势：<br>1.非单调性设计，可以更好地处理不同尺度的目标;<br>2.通过iou * torch.exp((rho2 &#x2F; c2))的计算方式，在保持IoU基本特性的同时，增加了对中心点距离的惩罚<br>更适合处理复杂场景下的目标检测任务。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#loss.py</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BboxLoss</span>(nn.Module):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Criterion class for computing training losses during training.&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, reg_max=<span class="number">16</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;Initialize the BboxLoss module with regularization maximum and DFL settings.&quot;&quot;&quot;</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.dfl_loss = DFLoss(reg_max) <span class="keyword">if</span> reg_max &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, pred_dist, pred_bboxes, anchor_points, target_bboxes, target_scores, target_scores_sum, fg_mask</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;IoU loss.&quot;&quot;&quot;</span></span><br><span class="line">        weight = target_scores.<span class="built_in">sum</span>(-<span class="number">1</span>)[fg_mask].unsqueeze(-<span class="number">1</span>)</span><br><span class="line">        iou = bbox_iou(pred_bboxes[fg_mask], target_bboxes[fg_mask], xywh=<span class="literal">False</span>, WIoU=<span class="literal">True</span>, scale=<span class="literal">False</span>)  <span class="comment"># WIoU v3</span></span><br><span class="line">        loss_iou = ((<span class="number">1.0</span> - iou) * weight).<span class="built_in">sum</span>() / target_scores_sum</span><br><span class="line"></span><br><span class="line">        <span class="comment"># DFL loss</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.dfl_loss:</span><br><span class="line">            target_ltrb = bbox2dist(anchor_points, target_bboxes, <span class="variable language_">self</span>.dfl_loss.reg_max - <span class="number">1</span>)</span><br><span class="line">            loss_dfl = <span class="variable language_">self</span>.dfl_loss(pred_dist[fg_mask].view(-<span class="number">1</span>, <span class="variable language_">self</span>.dfl_loss.reg_max), target_ltrb[fg_mask]) * weight</span><br><span class="line">            loss_dfl = loss_dfl.<span class="built_in">sum</span>() / target_scores_sum</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            loss_dfl = torch.tensor(<span class="number">0.0</span>).to(pred_dist.device)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> loss_iou, loss_dfl</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># metrics.py</span></span><br><span class="line">    <span class="comment">#……</span></span><br><span class="line">    <span class="keyword">elif</span> WIoU:</span><br><span class="line">        <span class="keyword">if</span> Focal:</span><br><span class="line">            <span class="keyword">raise</span> RuntimeError(<span class="string">&quot;WIoU do not support Focal.&quot;</span>)</span><br><span class="line">        <span class="keyword">elif</span> scale:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">getattr</span>(WIoU_Scale, <span class="string">&#x27;_scaled_loss&#x27;</span>)(<span class="variable language_">self</span>), (<span class="number">1</span> - iou) * torch.exp(</span><br><span class="line">                (rho2 / c2)), iou  <span class="comment"># WIoU https://arxiv.org/abs/2301.10051</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> iou * torch.exp((rho2 / c2))  <span class="comment"># WIoU v3</span></span><br><span class="line">            <span class="comment">#return iou, torch.exp((rho2 / c2))  # WIoU v1</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a><strong>结论</strong></h1><p>常规场景<br>若数据质量较高且目标尺寸分布均匀，CIoU仍能取得较好效果（尤其对形状敏感的任务）。</p>
-<p>复杂场景推荐WIoU<br>在以下情况优先选择WIoU：<br>    数据存在大量低质量标注（遮挡、模糊）<br>    小目标占比高或目标尺寸差异大<br>    追求更高mAP（WIoUv3相比CIoU约有0.5-1.2%提升）</p>
-
+        <p>MFC在旧电脑正常运行，但放在新电脑上，出现弹窗找不到mfcXXX.dll，这大概率是没有安装MFC运行库的原因，你可以下载并安装<a target="_blank" rel="noopener" href="https://soft.3dmgame.com/down/322286.html">Visual C++ 2019运行库</a>来解决这个问题，<br><img src="/images/6.png" alt="图片" title="下载Visual C++ 2019运行库"><br>点击普通下载</p>
+<p><img src="/images/5.png" alt="图片" title="Visual C++ 2019运行库安装"><br>勾选同意，点击安装即可，MFC软件正常打开。</p>
+<p>更多文章：</p>
+<a href="/2025/05/14/9%E9%80%9A%E9%81%93%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA/" title="9通道多光谱相机">9通道多光谱相机</a>
+<a href="/2025/05/08/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%881%EF%BC%89/" title="C&#x2F;C++面试题目整理（1）">C++面试题目整理（1）</a>
+<a href="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/" title="C&#x2F;C++面试题目整理（2）">C++面试题目整理（2）</a>
+<a href="/2025/05/15/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/" title="MFC程序退出机制分析">MFC程序退出机制分析</a>
+<a href="/2025/05/12/OpenCV%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" title="OpenCV相机曝光参数设置">OpenCV相机曝光参数设置</a>
+<a href="/2025/05/26/YOLO%E7%9A%84WIoU%E5%92%8CCIoU%E5%AF%B9%E6%AF%94/" title="YOLO的WIoU和CIoU对比">YOLO的WIoU和CIoU对比</a>
+<a href="/2025/05/18/%E5%91%BC%E5%90%B8%E4%B9%8B%E9%97%B4/" title="呼吸之间">呼吸之间</a>
     </div>
 
     
@@ -303,7 +258,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/YOLO/" rel="tag"># YOLO</a>
+              <a href="/tags/MFC%E8%BF%90%E8%A1%8C%E5%BA%93/" rel="tag"># MFC运行库</a>
           </div>
         
         <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
@@ -314,8 +269,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/05/18/%E5%91%BC%E5%90%B8%E4%B9%8B%E9%97%B4/" rel="prev" title="呼吸之间">
-      <i class="fa fa-chevron-left"></i> 呼吸之间
+    <a href="/2025/05/26/YOLO%E7%9A%84WIoU%E5%92%8CCIoU%E5%AF%B9%E6%AF%94/" rel="prev" title="YOLO的WIoU和CIoU对比">
+      <i class="fa fa-chevron-left"></i> YOLO的WIoU和CIoU对比
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -377,7 +332,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">结论</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -391,7 +345,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -402,7 +356,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

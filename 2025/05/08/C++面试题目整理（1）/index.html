@@ -30,7 +30,7 @@
 <meta property="og:description" content="整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~1. malloc、free和new、delete的区别？malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。 new和delete：它们是C++的运算符，具备类型安">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-05-08T01:46:11.000Z">
-<meta property="article:modified_time" content="2025-05-24T02:11:56.708Z">
+<meta property="article:modified_time" content="2025-06-05T10:38:57.327Z">
 <meta property="article:author" content="Holden">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
@@ -208,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-05-24 10:11:56" itemprop="dateModified" datetime="2025-05-24T10:11:56+08:00">2025-05-24</time>
+                <time title="Modified: 2025-06-05 18:38:57" itemprop="dateModified" datetime="2025-06-05T18:38:57+08:00">2025-06-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -321,7 +321,7 @@
 <p>它只能用于以’\0’结尾的字符串，计算从字符串起始位置到第一个’\0’字符之间的字符个数。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> str[] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Length of str: %zu\n&quot;</span>, <span class="built_in">strlen</span>(str));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>综上所述，sizeof和strlen在本质、使用方式、计算结果、时间复杂度和适用范围等方面都存在明显差异。在实际编程中，需要根据具体需求选择合适的工具。如果需要确定数据类型或变量所占用的内存大小，使用sizeof；如果需要计算字符串的实际长度，使用strlen。</p>
-
+<a href="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/" title="C&#x2F;C++面试题目整理（2）">C++面试题目整理（2）</a>
     </div>
 
     
@@ -421,7 +421,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -432,7 +432,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

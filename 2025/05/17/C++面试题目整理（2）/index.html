@@ -30,7 +30,7 @@
 <meta property="og:description" content="1. move函数在C++中，移动语义是为了解决传统的拷贝构造函数和赋值运算符在传递临时对象时效率低下的问题。通过使用move函数模板类，程序员可以明确地表达自己的意图，将资源的所有权从一个对象转移到另一个对象，避免不必要的数据拷贝，提高程序的性能。在实现move函数模板类时，需要考虑对象的生命周期管理、资源的移动和释放等问题，以确保程序的正确性和高效性。std::move() 是 C++ 标准库">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-05-17T06:45:24.000Z">
-<meta property="article:modified_time" content="2025-05-24T02:11:56.708Z">
+<meta property="article:modified_time" content="2025-06-05T10:38:57.327Z">
 <meta property="article:author" content="Holden">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
@@ -208,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-05-24 10:11:56" itemprop="dateModified" datetime="2025-05-24T10:11:56+08:00">2025-05-24</time>
+                <time title="Modified: 2025-06-05 18:38:57" itemprop="dateModified" datetime="2025-06-05T18:38:57+08:00">2025-06-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,7 +270,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[capture list](parameters) -&gt; return_type &#123; </span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其中：<br>capture list 是可选项，用于捕获外部变量。<br>parameters 是参数列表。<br>return_type 是返回类型。<br>{} 包含了函数体。<br>Lambda表达式可以捕获以下几种类型的外部变量：<br>值捕获（value capture）：通过在捕获列表中以值方式进行捕获。例如：[x]，表示以值方式捕获变量x。<br>引用捕获（reference capture）：通过在捕获列表中以引用方式进行捕获。例如：[&amp;y]，表示以引用方式捕获变量y。<br>隐式捕获（implicit capture）：省略了具体的变量名，在编译器根据上下文推断要进行哪种类型的捕获。例如：[&#x3D;] 表示按值方式隐式捕获所有外部变量； [&amp;] 表示按引用方式隐式捕获所有外部变量。<br>在lambda表达式内部可以使用被捕获的外部变量，并且根据捕获方式的不同，有不同的语义。需要注意的是，被值捕获的变量在lambda表达式内部是不可修改的（除非使用mutable修饰符）；而被引用捕获的变量可以修改。</p>
 <h2 id="9-gcc编译的过程"><a href="#9-gcc编译的过程" class="headerlink" title="9. gcc编译的过程"></a><strong>9. gcc编译的过程</strong></h2><p>GCC（GNU Compiler Collection）是一款流行的开源编译器，用于将源代码转换为可执行程序。<br>下面是GCC编译过程的简要步骤：<br>预处理（Preprocessing）：预处理阶段通过处理预处理指令，如#include和宏定义等，对源文件进行展开和替换。结果生成一个扩展名为”.i”的中间文件。<br>编译（Compilation）：编译阶段将预处理后的代码翻译成汇编语言代码。这个阶段主要包括词法分析、语法分析、语义分析和优化等步骤。结果生成一个扩展名为”.s”的汇编代码文件。<br>汇编（Assembly）：汇编阶段将汇编语言代码转化为机器码指令，并生成一个扩展名为”.o”的目标文件。<br>链接（Linking）：链接阶段将目标文件与必要的库文件进行合并，以及解决符号引用和地址重定位等问题。最终生成可执行程序或者共享库文件。<br>在链接阶段，还可以包含以下几个子过程：<br>符号解析（Symbol resolution）：确定所有符号引用的实际地址。<br>地址重定位（Address relocation）：根据实际地址修改目标文件中的地址值。</p>
-
+<a href="/2025/05/08/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%881%EF%BC%89/" title="C&#x2F;C++面试题目整理（1）">C++面试题目整理（1）</a>
     </div>
 
     
@@ -370,7 +370,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -381,7 +381,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
