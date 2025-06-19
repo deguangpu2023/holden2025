@@ -25,17 +25,17 @@
   <meta name="description" content="1. move函数在C++中，移动语义是为了解决传统的拷贝构造函数和赋值运算符在传递临时对象时效率低下的问题。通过使用move函数模板类，程序员可以明确地表达自己的意图，将资源的所有权从一个对象转移到另一个对象，避免不必要的数据拷贝，提高程序的性能。在实现move函数模板类时，需要考虑对象的生命周期管理、资源的移动和释放等问题，以确保程序的正确性和高效性。std::move() 是 C++ 标准库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C&#x2F;C++面试题目整理（2）">
-<meta property="og:url" content="https://holden.baby/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/index.html">
+<meta property="og:url" content="https://holden.baby/2025/05/17/8/index.html">
 <meta property="og:site_name" content="Holden Blog">
 <meta property="og:description" content="1. move函数在C++中，移动语义是为了解决传统的拷贝构造函数和赋值运算符在传递临时对象时效率低下的问题。通过使用move函数模板类，程序员可以明确地表达自己的意图，将资源的所有权从一个对象转移到另一个对象，避免不必要的数据拷贝，提高程序的性能。在实现move函数模板类时，需要考虑对象的生命周期管理、资源的移动和释放等问题，以确保程序的正确性和高效性。std::move() 是 C++ 标准库">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-05-17T06:45:24.000Z">
-<meta property="article:modified_time" content="2025-06-05T10:38:57.327Z">
+<meta property="article:modified_time" content="2025-06-19T05:35:48.382Z">
 <meta property="article:author" content="Holden">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://holden.baby/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/">
+<link rel="canonical" href="https://holden.baby/2025/05/17/8/">
 
 
 <script id="page-configurations">
@@ -111,12 +111,11 @@
       <h1 class="site-title">Holden Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">逐梦山海 / Hello World~</p>
+      <p class="site-subtitle" itemprop="description">颜色视觉实验室</p>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -151,35 +150,11 @@
     <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
 
   </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
-        </a>
-      </li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container"></div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="algolia-results">
-  <div id="algolia-stats"></div>
-  <div id="algolia-hits"></div>
-  <div id="algolia-pagination" class="algolia-pagination"></div>
-</div>
-
-      
-    </div>
-  </div>
 
 </div>
     </header>
@@ -203,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/17/8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -233,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-06-05 18:38:57" itemprop="dateModified" datetime="2025-06-05T18:38:57+08:00">2025-06-05</time>
+                <time title="Modified: 2025-06-19 13:35:48" itemprop="dateModified" datetime="2025-06-19T13:35:48+08:00">2025-06-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,7 +221,7 @@
             </span>
 
           
-            <span id="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="C/C++面试题目整理（2）" title="Views">
+            <span id="/2025/05/17/8/" class="post-meta-item leancloud_visitors" data-flag-title="C/C++面试题目整理（2）" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -261,8 +236,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/17/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%882%EF%BC%89/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/05/17/8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/17/8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -295,7 +270,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[capture list](parameters) -&gt; return_type &#123; </span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其中：<br>capture list 是可选项，用于捕获外部变量。<br>parameters 是参数列表。<br>return_type 是返回类型。<br>{} 包含了函数体。<br>Lambda表达式可以捕获以下几种类型的外部变量：<br>值捕获（value capture）：通过在捕获列表中以值方式进行捕获。例如：[x]，表示以值方式捕获变量x。<br>引用捕获（reference capture）：通过在捕获列表中以引用方式进行捕获。例如：[&amp;y]，表示以引用方式捕获变量y。<br>隐式捕获（implicit capture）：省略了具体的变量名，在编译器根据上下文推断要进行哪种类型的捕获。例如：[&#x3D;] 表示按值方式隐式捕获所有外部变量； [&amp;] 表示按引用方式隐式捕获所有外部变量。<br>在lambda表达式内部可以使用被捕获的外部变量，并且根据捕获方式的不同，有不同的语义。需要注意的是，被值捕获的变量在lambda表达式内部是不可修改的（除非使用mutable修饰符）；而被引用捕获的变量可以修改。</p>
 <h2 id="9-gcc编译的过程"><a href="#9-gcc编译的过程" class="headerlink" title="9. gcc编译的过程"></a><strong>9. gcc编译的过程</strong></h2><p>GCC（GNU Compiler Collection）是一款流行的开源编译器，用于将源代码转换为可执行程序。<br>下面是GCC编译过程的简要步骤：<br>预处理（Preprocessing）：预处理阶段通过处理预处理指令，如#include和宏定义等，对源文件进行展开和替换。结果生成一个扩展名为”.i”的中间文件。<br>编译（Compilation）：编译阶段将预处理后的代码翻译成汇编语言代码。这个阶段主要包括词法分析、语法分析、语义分析和优化等步骤。结果生成一个扩展名为”.s”的汇编代码文件。<br>汇编（Assembly）：汇编阶段将汇编语言代码转化为机器码指令，并生成一个扩展名为”.o”的目标文件。<br>链接（Linking）：链接阶段将目标文件与必要的库文件进行合并，以及解决符号引用和地址重定位等问题。最终生成可执行程序或者共享库文件。<br>在链接阶段，还可以包含以下几个子过程：<br>符号解析（Symbol resolution）：确定所有符号引用的实际地址。<br>地址重定位（Address relocation）：根据实际地址修改目标文件中的地址值。</p>
-<a href="/2025/05/08/C++%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86%EF%BC%881%EF%BC%89/" title="C&#x2F;C++面试题目整理（1）">C++面试题目整理（1）</a>
+<a href="/2025/05/08/7/" title="C&#x2F;C++面试题目整理（1）">C++面试题目整理（1）</a>
     </div>
 
     
@@ -315,11 +290,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/05/15/MFC%E7%A8%8B%E5%BA%8F%E9%80%80%E5%87%BA%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/" rel="prev" title="MFC程序退出机制分析">
+    <a href="/2025/05/15/9/" rel="prev" title="MFC程序退出机制分析">
       <i class="fa fa-chevron-left"></i> MFC程序退出机制分析
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/05/18/%E5%91%BC%E5%90%B8%E4%B9%8B%E9%97%B4/" rel="next" title="呼吸之间">
+    <a href="/2025/05/18/6/" rel="next" title="呼吸之间">
       呼吸之间 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -539,13 +514,6 @@
       !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
   </script>
 
-
-
-
-  
-<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
-<script src="/js/algolia-search.js"></script>
 
 
 
