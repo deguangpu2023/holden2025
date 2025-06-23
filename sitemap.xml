@@ -176,6 +176,13 @@
   </url>
   
   <url>
+    <loc>https://holden.baby/tags/YOLO11/</loc>
+    <lastmod>2025-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://holden.baby/tags/YOLO/</loc>
     <lastmod>2025-06-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -183,7 +190,7 @@
   </url>
   
   <url>
-    <loc>https://holden.baby/tags/YOLO11/</loc>
+    <loc>https://holden.baby/tags/%E9%A2%9C%E8%89%B2%E8%BD%AC%E6%8D%A2/</loc>
     <lastmod>2025-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -198,13 +205,6 @@
   
   <url>
     <loc>https://holden.baby/tags/%E9%A2%9C%E8%89%B2%E6%A0%A1%E6%AD%A3/</loc>
-    <lastmod>2025-06-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://holden.baby/tags/%E9%A2%9C%E8%89%B2%E8%BD%AC%E6%8D%A2/</loc>
     <lastmod>2025-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -239,14 +239,14 @@
   </url>
   
   <url>
-    <loc>https://holden.baby/tags/%E9%81%93%E5%AE%B6%E5%8A%9F%E6%B3%95/</loc>
+    <loc>https://holden.baby/tags/%E5%91%BC%E5%90%B8/</loc>
     <lastmod>2025-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://holden.baby/tags/%E5%91%BC%E5%90%B8/</loc>
+    <loc>https://holden.baby/tags/%E9%81%93%E5%AE%B6%E5%8A%9F%E6%B3%95/</loc>
     <lastmod>2025-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
