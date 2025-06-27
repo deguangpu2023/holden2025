@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"holden.baby","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"holden.baby","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":false,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Hello, That is a free online color space converter tool(Based on sRGB).  需要将颜色空间从RGB转换为其他空间吗？使用德光浦科技研发的在线颜色转换工具rgbtoo.xyz，支持RGB、XYZ、LAB、CMYK、HSV、Yxy、YUV等多种色彩格式转换，提供精准的色彩识别和处理功能，快速实现您的设计需求。 Do you nee">
@@ -58,15 +58,6 @@
   
 
 
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?b6009e1dfd1dbab3631514c04ed19996";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -212,13 +203,6 @@
             </span>
 
           
-            <span id="/2025/06/27/Color-Space-Converter-Tools-sRGB/" class="post-meta-item leancloud_visitors" data-flag-title="Color Space Converter Tools(sRGB)" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -254,7 +238,7 @@ Hello, That is a free online color space converter tool(Based on sRGB).
 <img src="/images/15.jpg" alt="在线颜色空间转换器2">
 
 
-<p>网站还有调色板、取色器、常用颜色等功能，更多功能有待开发。感谢使用和关注！Thanks for using and paying attention!If you have any suggestions, please contact me. Thank you!<br>MyEmail:<a href="mailto:&#50;&#57;&#x34;&#x32;&#x38;&#52;&#51;&#54;&#x34;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#50;&#57;&#x34;&#x32;&#x38;&#52;&#51;&#54;&#x34;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p>网站还有调色板、取色器、常用颜色等功能，更多功能有待开发。感谢使用和关注！Thanks for using and paying attention!If you have any suggestions, please contact me. Thank you!<br>MyEmail:<a href="mailto:&#50;&#57;&#52;&#x32;&#x38;&#x34;&#x33;&#54;&#52;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#50;&#57;&#52;&#x32;&#x38;&#x34;&#x33;&#54;&#52;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
 <p>Color Space Converter Tools使用Railway搭建，推荐使用Railway，一键部署，方便安全，很适合独立开发者使用。<br>The website is built using Railway, and it is recommended to use Railway for one click deployment, which is convenient and secure, and is very suitable for independent developers to use.</p>
 <p><a target="_blank" rel="noopener" href="https://railway.com/?referralCode=ffMu74">Railway link</a><br>My Referral code:ffMu74</p>
 
@@ -443,92 +427,6 @@ Hello, That is a free online color space converter tool(Based on sRGB).
 
 
 
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.id);
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            let target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"zUvusKGeQb1DBgAstjWgVfH6-gzGzoHsz","app_key":"BOjN0CSgH90Dfdsrlh61xeP5","server_url":null,"security":true};
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
 
 
       </div>
