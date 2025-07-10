@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 7.3.0">
-<meta name="keywords" content="C++,QT,MFC,视觉,独立开发,生活感悟,道家养生,德光浦科技">
+<meta name="keywords" content="C++,QT,MFC,视觉,独立开发,生活感悟,道家养生">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -25,13 +25,13 @@
 
   <meta name="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Holden Blog">
+<meta property="og:title" content="Hance Blog">
 <meta property="og:url" content="https://holden.baby/page/2/index.html">
-<meta property="og:site_name" content="Holden Blog">
+<meta property="og:site_name" content="Hance Blog">
 <meta property="og:description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="Holden">
-<meta property="article:tag" content="C++,QT,MFC,视觉,独立开发,生活感悟,道家养生,德光浦科技">
+<meta property="article:author" content="Hance">
+<meta property="article:tag" content="C++,QT,MFC,视觉,独立开发,生活感悟,道家养生">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://holden.baby/page/2/">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>Holden Blog</title>
+  <title>Hance Blog</title>
   
 
 
@@ -98,7 +98,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Holden Blog</h1>
+      <h1 class="site-title">Hance Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">颜色视觉实验室</p>
@@ -167,16 +167,104 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/14/2/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/15/9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Holden">
+      <meta itemprop="name" content="Hance">
       <meta itemprop="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Holden Blog">
+      <meta itemprop="name" content="Hance Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/05/15/9/" class="post-title-link" itemprop="url">MFC程序退出机制分析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-05-15 14:24:29" itemprop="dateCreated datePublished" datetime="2025-05-15T14:24:29+08:00">2025-05-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-05-24 10:08:18" itemprop="dateModified" datetime="2025-05-24T10:08:18+08:00">2025-05-24</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2025/05/15/9/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/05/15/9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在MFC应用程序中，使用 AfxGetMainWnd()-&gt;SendMessage(WM_CLOSE); 通常可以正常退出程序，但具体行为取决于主窗口的消息处理逻辑。以下是详细分析：</p>
+<ol>
+<li><p>基本原理<br>AfxGetMainWnd()：获取应用程序主窗口的指针（通常是 CFrameWnd 或其派生类）。<br>WM_CLOSE 消息：向主窗口发送关闭请求，触发窗口的关闭流程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/05/15/9/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/14/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hance">
+      <meta itemprop="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hance Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -258,12 +346,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Holden">
+      <meta itemprop="name" content="Hance">
       <meta itemprop="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Holden Blog">
+      <meta itemprop="name" content="Hance Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -345,12 +433,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Holden">
+      <meta itemprop="name" content="Hance">
       <meta itemprop="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Holden Blog">
+      <meta itemprop="name" content="Hance Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -440,12 +528,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Holden">
+      <meta itemprop="name" content="Hance">
       <meta itemprop="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Holden Blog">
+      <meta itemprop="name" content="Hance Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -536,12 +624,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Holden">
+      <meta itemprop="name" content="Hance">
       <meta itemprop="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Holden Blog">
+      <meta itemprop="name" content="Hance Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -563,7 +651,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-06-23 19:20:45" itemprop="dateModified" datetime="2025-06-23T19:20:45+08:00">2025-06-23</time>
+                <time title="Modified: 2025-07-10 20:10:01" itemprop="dateModified" datetime="2025-07-10T20:10:01+08:00">2025-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -600,7 +688,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Hi！大家好！我是Holden"><a href="#Hi！大家好！我是Holden" class="headerlink" title="Hi！大家好！我是Holden"></a><strong>Hi！大家好！我是Holden</strong></h1><p>哈哈，这是我的博客，谢谢关注~</p>
+          <h1 id="Hi！大家好！我是hance"><a href="#Hi！大家好！我是hance" class="headerlink" title="Hi！大家好！我是hance"></a><strong>Hi！大家好！我是hance</strong></h1><p>哈哈，这是我的博客，谢谢关注~</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/04/26/1/#more" rel="contents">
@@ -684,7 +772,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Holden</p>
+  <p class="site-author-name" itemprop="name">Hance</p>
   <div class="site-description" itemprop="description">大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -692,7 +780,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -703,7 +791,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -752,7 +840,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Holden</span>
+  <span class="author" itemprop="copyrightHolder">Hance</span>
 </div>
 <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=68284051a7cb4a00198419ec&product=sop' async='async'></script>
 <div class="sharethis-inline-share-buttons"></div>
