@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<meta name="keywords" content="C++,QT,MFC,视觉,独立开发,生活感悟,道家养生,简单工具箱">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HcrqOuyM0FrMClnEvg_tOK3_HKjKuSTWitSgWMJnOZQ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"holden.baby","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":false,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="德光浦科技自研的9通道多光谱相机通过FPGA实时读取和处理9个摄像头数据上位机软件使用MFC编写8个黑白通道+1个RGB通道，中心波长可定制 黑白摄像头分辨率：1280X1024彩色摄像头分辨率：1280X720">
+<meta property="og:type" content="article">
+<meta property="og:title" content="德光浦9通道多光谱相机">
+<meta property="og:url" content="https://holden.baby/2025/camera-1/index.html">
+<meta property="og:site_name" content="Hance Blog">
+<meta property="og:description" content="德光浦科技自研的9通道多光谱相机通过FPGA实时读取和处理9个摄像头数据上位机软件使用MFC编写8个黑白通道+1个RGB通道，中心波长可定制 黑白摄像头分辨率：1280X1024彩色摄像头分辨率：1280X720">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://holden.baby/images/2.jpg">
+<meta property="og:image" content="https://holden.baby/images/1.jpg">
+<meta property="article:published_time" content="2025-05-14T06:47:04.000Z">
+<meta property="article:modified_time" content="2025-08-02T11:32:45.856Z">
+<meta property="article:author" content="Hance">
+<meta property="article:tag" content="多光谱">
+<meta property="article:tag" content="Multispectral Camera">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://holden.baby/images/2.jpg">
+
+<link rel="canonical" href="https://holden.baby/2025/camera-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>德光浦9通道多光谱相机 | Hance Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hance Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">颜色视觉实验室</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/camera-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hance">
+      <meta itemprop="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hance Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          德光浦9通道多光谱相机
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-05-14 14:47:04" itemprop="dateCreated datePublished" datetime="2025-05-14T14:47:04+08:00">2025-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-08-02 19:32:45" itemprop="dateModified" datetime="2025-08-02T19:32:45+08:00">2025-08-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="德光浦科技自研的9通道多光谱相机"><a href="#德光浦科技自研的9通道多光谱相机" class="headerlink" title="德光浦科技自研的9通道多光谱相机"></a><strong>德光浦科技自研的9通道多光谱相机</strong></h1><p>通过FPGA实时读取和处理9个摄像头数据<br>上位机软件使用MFC编写<br>8个黑白通道+1个RGB通道，中心波长可定制</p>
+<p>黑白摄像头分辨率：1280X1024<br>彩色摄像头分辨率：1280X720</p>
+<span id="more"></span>
+<p><img src="/images/2.jpg" alt="图片" title="多光谱相机"><br><img src="/images/1.jpg" alt="图片" title="多光谱相机"></p>
+<p>改进后可以集成到大疆经纬M300无人机上。</p>
+<h1 id="多光谱相机与高光谱相机的区别？"><a href="#多光谱相机与高光谱相机的区别？" class="headerlink" title="多光谱相机与高光谱相机的区别？"></a><strong>多光谱相机与高光谱相机的区别？</strong></h1><h2 id="1-多光谱相机（Multispectral-Camera）"><a href="#1-多光谱相机（Multispectral-Camera）" class="headerlink" title="1. 多光谱相机（Multispectral Camera）"></a>1. 多光谱相机（Multispectral Camera）</h2><p>原理</p>
+<p>多光谱相机通过分光技术捕获目标在离散的几个至几十个波段下的图像。每个波段覆盖较宽的波长范围（如10-100纳米），且波段之间不连续（例如可见光、近红外等）。</p>
+<p>特点</p>
+<p>波段数量少（通常≤10个），覆盖特定光谱区间。</p>
+<p>空间分辨率较高，适合大范围观测。</p>
+<p>数据量小，处理效率高。</p>
+<p>典型应用</p>
+<p>农业监测：利用红边和近红外波段计算NDVI（归一化植被指数），评估作物健康。<br>环境遥感：监测森林覆盖、水体污染（如叶绿素浓度）。<br>气象卫星：如Landsat系列卫星，使用多波段分析地表温度、土地利用。<br>军事侦察：识别伪装目标（植被与人工材料的反射差异）。</p>
+<h2 id="2-高光谱相机（Hyperspectral-Camera）"><a href="#2-高光谱相机（Hyperspectral-Camera）" class="headerlink" title="2. 高光谱相机（Hyperspectral Camera）"></a>2. 高光谱相机（Hyperspectral Camera）</h2><p>原理</p>
+<p>高光谱相机通过连续、密集的采样，获取目标在数百个窄波段（1-10纳米带宽）下的光谱信息，形成连续的光谱曲线。</p>
+<p>特点</p>
+<p>波段数量多（100~1000+），光谱分辨率极高。<br>可识别物质的“光谱指纹”（如矿物、化学成分）。<br>数据量庞大，处理复杂，对计算资源要求高。</p>
+<p>典型应用</p>
+<p>地质勘探：识别矿物成分（如通过特征吸收波段区分赤铁矿与磁铁矿）。<br>精准农业：检测病虫害、土壤养分（特定病害导致的光谱细微变化）。<br>环境监测：追踪石油泄漏（油膜在特定波段有独特反射）。<br>医学诊断：分析组织病理（癌变组织与正常组织的光谱差异）。<br>食品安全：检测污染物或掺假物质。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%9A%E5%85%89%E8%B0%B1/" rel="tag"># 多光谱</a>
+              <a href="/tags/Multispectral-Camera/" rel="tag"># Multispectral Camera</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/10-a/" rel="prev" title="OpenCV相机曝光参数设置">
+      <i class="fa fa-chevron-left"></i> OpenCV相机曝光参数设置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/9-a/" rel="next" title="MFC程序退出机制分析">
+      MFC程序退出机制分析 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%B7%E5%85%89%E6%B5%A6%E7%A7%91%E6%8A%80%E8%87%AA%E7%A0%94%E7%9A%849%E9%80%9A%E9%81%93%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">德光浦科技自研的9通道多光谱相机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA%E4%B8%8E%E9%AB%98%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">多光谱相机与高光谱相机的区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%A4%9A%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA%EF%BC%88Multispectral-Camera%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">1. 多光谱相机（Multispectral Camera）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%AB%98%E5%85%89%E8%B0%B1%E7%9B%B8%E6%9C%BA%EF%BC%88Hyperspectral-Camera%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">2. 高光谱相机（Hyperspectral Camera）</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hance</p>
+  <div class="site-description" itemprop="description">大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deguangpu2023" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deguangpu2023" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:294284364@qq.com" title="E-Mail → mailto:294284364@qq.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://rgbtoo.xyz/" title="https:&#x2F;&#x2F;rgbtoo.xyz" rel="noopener" target="_blank">颜色转换工具</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hance</span>
+</div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=68284051a7cb4a00198419ec&product=sop' async='async'></script>
+<div class="sharethis-inline-share-buttons"></div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

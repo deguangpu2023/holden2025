@@ -166,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/15/9/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/8-a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,7 +180,88 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/05/15/9/" class="post-title-link" itemprop="url">MFC程序退出机制分析</a>
+            <a href="/2025/8-a/" class="post-title-link" itemprop="url">C/C++面试题目整理（2）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-05-17 14:45:24" itemprop="dateCreated datePublished" datetime="2025-05-17T14:45:24+08:00">2025-05-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-08-02 19:09:28" itemprop="dateModified" datetime="2025-08-02T19:09:28+08:00">2025-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-move函数"><a href="#1-move函数" class="headerlink" title="1. move函数"></a><strong>1. move函数</strong></h2><p>在C++中，移动语义是为了解决传统的拷贝构造函数和赋值运算符在传递临时对象时效率低下的问题。通过使用move函数模板类，程序员可以明确地表达自己的意图，将资源的所有权从一个对象转移到另一个对象，避免不必要的数据拷贝，提高程序的性能。在实现move函数模板类时，需要考虑对象的生命周期管理、资源的移动和释放等问题，以确保程序的正确性和高效性。<br>std::move() 是 C++ 标准库中的一个函数，它位于 <utility> 头文件中。它用于将对象的所有权从一个对象转移给另一个对象。<br>当我们需要将某个对象转移（而不是复制）到另一个对象时，可以使用 std::move() 函数来实现高效的资源管理。通过使用 std::move()，编译器将不再视图拷贝该对象，而是将其内部状态的所有权转移到新的目标对象上。<br>使用 std::move() 的一般步骤如下：<br>引入 <utility> 头文件：#include <utility><br>使用 std::move() 函数进行转移：target &#x3D; std::move(source);<br>以下是一些关键点和注意事项：<br>std::move() 并不实际移动任何数据，它只是将传递给它的参数标记为可被移动（右值）。这意味着我们应该确保在调用 std::move() 之前，源对象不再被使用。<br>被标记为可移动的右值引用可以通过 Rvalue 引用来接收，并且可以使用该引用访问原始源对象的内容。<br>在转移完成后，源对象处于有效但未定义状态，通常会被设置为默认构造状态或 nullptr 等合理值。因此，在转移后，请不要假设源对象保持原有值。<br>对于支持移动语义的类，可以通过实现自定义的移动构造函数和移动赋值操作符来控制转移过程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/8-a/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/9-a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hance">
+      <meta itemprop="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hance Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/9-a/" class="post-title-link" itemprop="url">MFC程序退出机制分析</a>
         </h2>
 
         <div class="post-meta">
@@ -197,7 +278,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-24 10:08:18" itemprop="dateModified" datetime="2025-05-24T10:08:18+08:00">2025-05-24</time>
+                <time title="修改时间：2025-08-02 19:09:36" itemprop="dateModified" datetime="2025-08-02T19:09:36+08:00">2025-08-02</time>
               </span>
 
           
@@ -216,7 +297,7 @@
 <li><p>基本原理<br>AfxGetMainWnd()：获取应用程序主窗口的指针（通常是 CFrameWnd 或其派生类）。<br>WM_CLOSE 消息：向主窗口发送关闭请求，触发窗口的关闭流程。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/05/15/9/#more" rel="contents">
+              <a class="btn" href="/2025/9-a/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -240,7 +321,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/14/2/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/camera-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -254,7 +335,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/05/14/2/" class="post-title-link" itemprop="url">9通道多光谱相机</a>
+            <a href="/2025/camera-1/" class="post-title-link" itemprop="url">德光浦9通道多光谱相机</a>
         </h2>
 
         <div class="post-meta">
@@ -271,7 +352,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-07 16:58:59" itemprop="dateModified" datetime="2025-06-07T16:58:59+08:00">2025-06-07</time>
+                <time title="修改时间：2025-08-02 19:32:45" itemprop="dateModified" datetime="2025-08-02T19:32:45+08:00">2025-08-02</time>
               </span>
 
           
@@ -289,7 +370,7 @@
 <p>黑白摄像头分辨率：1280X1024<br>彩色摄像头分辨率：1280X720</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/05/14/2/#more" rel="contents">
+              <a class="btn" href="/2025/camera-1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -313,7 +394,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/12/10/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/10-a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -327,7 +408,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/05/12/10/" class="post-title-link" itemprop="url">OpenCV相机曝光参数设置</a>
+            <a href="/2025/10-a/" class="post-title-link" itemprop="url">OpenCV相机曝光参数设置</a>
         </h2>
 
         <div class="post-meta">
@@ -344,7 +425,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-19 13:36:26" itemprop="dateModified" datetime="2025-06-19T13:36:26+08:00">2025-06-19</time>
+                <time title="修改时间：2025-08-02 19:09:45" itemprop="dateModified" datetime="2025-08-02T19:09:45+08:00">2025-08-02</time>
               </span>
 
           
@@ -362,7 +443,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// win系统VS2019平台测试通过</span></span><br><span class="line"><span class="function">VideoCapture <span class="title">cv_cap</span><span class="params">(<span class="number">1</span>)</span></span>;<span class="comment">// 内部参数写0，代表笔记本自带的摄像头，2、1分别代表两个外接USB摄像头</span></span><br><span class="line">cv_cap.<span class="built_in">set</span>(cv::CAP_PROP_AUTO_EXPOSURE, <span class="number">0.25</span>); <span class="comment">// 设置手动曝光</span></span><br><span class="line">idc_edit_exp_value_set = cap.<span class="built_in">get</span>(cv::CAP_PROP_EXPOSURE); <span class="comment">// 获取摄像头曝光</span></span><br><span class="line">cv_cap.<span class="built_in">set</span>(CV_CAP_PROP_EXPOSURE, <span class="number">-13</span>);  <span class="comment">// 设置曝光，对应的曝光时间见下表</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/05/12/10/#more" rel="contents">
+              <a class="btn" href="/2025/10-a/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -386,7 +467,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/11/4/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/4-a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -400,7 +481,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/05/11/4/" class="post-title-link" itemprop="url">抖功</a>
+            <a href="/2025/4-a/" class="post-title-link" itemprop="url">抖功</a>
         </h2>
 
         <div class="post-meta">
@@ -417,7 +498,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-23 18:52:00" itemprop="dateModified" datetime="2025-06-23T18:52:00+08:00">2025-06-23</time>
+                <time title="修改时间：2025-08-02 19:09:03" itemprop="dateModified" datetime="2025-08-02T19:09:03+08:00">2025-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -443,7 +524,7 @@
           <p>‌抖功‌是一种通过全身有规律抖动来调节身心的传统养生方法，主要功效包括放松肌肉、促进血液循环及缓解压力，但需注意正确练习方法以避免膝关节损伤等潜在风险。‌‌</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/05/11/4/#more" rel="contents">
+              <a class="btn" href="/2025/4-a/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -467,7 +548,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/05/08/7/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/7-a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -481,7 +562,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/05/08/7/" class="post-title-link" itemprop="url">C/C++面试题目整理（1）</a>
+            <a href="/2025/7-a/" class="post-title-link" itemprop="url">C/C++面试题目整理（1）</a>
         </h2>
 
         <div class="post-meta">
@@ -498,7 +579,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-19 13:35:33" itemprop="dateModified" datetime="2025-06-19T13:35:33+08:00">2025-06-19</time>
+                <time title="修改时间：2025-08-02 19:09:22" itemprop="dateModified" datetime="2025-08-02T19:09:22+08:00">2025-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -525,7 +606,7 @@
 <p>new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化；delete会先调用对象的析构函数，再释放内存。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/05/08/7/#more" rel="contents">
+              <a class="btn" href="/2025/7-a/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -549,7 +630,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/04/26/1/">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/1-a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -563,7 +644,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/26/1/" class="post-title-link" itemprop="url">Hello My Friends！</a>
+            <a href="/2025/1-a/" class="post-title-link" itemprop="url">Hello My Friends！</a>
         </h2>
 
         <div class="post-meta">
@@ -580,7 +661,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-22 19:39:09" itemprop="dateModified" datetime="2025-07-22T19:39:09+08:00">2025-07-22</time>
+                <time title="修改时间：2025-08-02 19:08:40" itemprop="dateModified" datetime="2025-08-02T19:08:40+08:00">2025-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -606,7 +687,7 @@
           <h1 id="Hi！大家好！我是hance"><a href="#Hi！大家好！我是hance" class="headerlink" title="Hi！大家好！我是hance"></a><strong>Hi！大家好！我是hance</strong></h1><p>哈哈，这是我的博客，谢谢关注~</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/04/26/1/#more" rel="contents">
+              <a class="btn" href="/2025/1-a/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -695,18 +776,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

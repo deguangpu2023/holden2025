@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<meta name="keywords" content="C++,QT,MFC,视觉,独立开发,生活感悟,道家养生,简单工具箱">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HcrqOuyM0FrMClnEvg_tOK3_HKjKuSTWitSgWMJnOZQ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"holden.baby","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":false,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~1. malloc、free和new、delete的区别？malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。 new和delete：它们是C++的运算符，具备类型安">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C&#x2F;C++面试题目整理（1）">
+<meta property="og:url" content="https://holden.baby/2025/7-a/index.html">
+<meta property="og:site_name" content="Hance Blog">
+<meta property="og:description" content="整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~1. malloc、free和new、delete的区别？malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。 new和delete：它们是C++的运算符，具备类型安">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-08T01:46:11.000Z">
+<meta property="article:modified_time" content="2025-08-02T11:09:22.986Z">
+<meta property="article:author" content="Hance">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://holden.baby/2025/7-a/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>C/C++面试题目整理（1） | Hance Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hance Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">颜色视觉实验室</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://holden.baby/2025/7-a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hance">
+      <meta itemprop="description" content="大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hance Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C/C++面试题目整理（1）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-05-08 09:46:11" itemprop="dateCreated datePublished" datetime="2025-05-08T09:46:11+08:00">2025-05-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-08-02 19:09:22" itemprop="dateModified" datetime="2025-08-02T19:09:22+08:00">2025-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="整理一些C-C-程序员面试的题目，经常拿来看看吧"><a href="#整理一些C-C-程序员面试的题目，经常拿来看看吧" class="headerlink" title="整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~"></a><strong>整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~</strong></h1><h2 id="1-malloc、free和new、delete的区别？"><a href="#1-malloc、free和new、delete的区别？" class="headerlink" title="1. malloc、free和new、delete的区别？"></a><strong>1. malloc、free和new、delete的区别？</strong></h2><p>malloc和free：它们属于C语言标准库函数，在C++里依旧可以使用。本质上，malloc仅负责分配指定大小的内存块，返回一个void*类型的指针；free用于释放由malloc、calloc、realloc分配的内存。</p>
+<p>new和delete：它们是C++的运算符，具备类型安全特性。new不仅会分配内存，还会调用对象的构造函数进行初始化；delete会先调用对象的析构函数，再释放内存。</p>
+<span id="more"></span>
+
+<p>malloc和free：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 使用malloc分配内存</span></span><br><span class="line">    <span class="type">int</span>* ptr = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="keyword">if</span> (ptr != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        *ptr = <span class="number">10</span>;</span><br><span class="line">        std::cout &lt;&lt; *ptr &lt;&lt; std::endl;</span><br><span class="line">        <span class="comment">// 使用free释放内存</span></span><br><span class="line">        <span class="built_in">free</span>(ptr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>new和delete：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyClass</span>() &#123; std::cout &lt;&lt; <span class="string">&quot;Constructor called&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">    ~<span class="built_in">MyClass</span>() &#123; std::cout &lt;&lt; <span class="string">&quot;Destructor called&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 使用new分配内存并初始化对象</span></span><br><span class="line">    MyClass* obj = <span class="keyword">new</span> <span class="built_in">MyClass</span>();</span><br><span class="line">    <span class="comment">// 使用delete释放内存并调用析构函数</span></span><br><span class="line">    <span class="keyword">delete</span> obj;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-虚函数表和虚函数表指针的创建时机？"><a href="#2-虚函数表和虚函数表指针的创建时机？" class="headerlink" title="2. 虚函数表和虚函数表指针的创建时机？"></a><strong>2. 虚函数表和虚函数表指针的创建时机？</strong></h2><p>在C++里，虚函数表（Virtual Table）和虚函数表指针（Virtual Table Pointer，简称vptr）是实现多态性的关键机制。</p>
+<h3 id="（1）虚函数表的创建时机"><a href="#（1）虚函数表的创建时机" class="headerlink" title="（1）虚函数表的创建时机"></a><strong>（1）虚函数表的创建时机</strong></h3><p>虚函数表是一个存储类的虚函数地址的静态数组，每个包含虚函数的类都会有一个对应的虚函数表。虚函数表的创建时机如下：</p>
+<p>编译时：编译器在编译阶段会为每个包含虚函数的类创建一个虚函数表。在这个过程中，编译器会遍历类中所有的虚函数，把它们的地址存于虚函数表中。如果类存在基类，且基类有虚函数，编译器还会处理继承关系，在派生类的虚函数表中更新或添加相应的虚函数地址。</p>
+<p>链接时：链接器会把各个编译单元中生成的虚函数表合并起来，形成最终的可执行文件中的虚函数表。</p>
+<h3 id="（2）虚函数表指针的创建时机"><a href="#（2）虚函数表指针的创建时机" class="headerlink" title="（2）虚函数表指针的创建时机"></a><strong>（2）虚函数表指针的创建时机</strong></h3><p>虚函数表指针是一个指向虚函数表的指针，每个包含虚函数的类的对象都会有一个虚函数表指针。虚函数表指针的创建时机如下：</p>
+<p>对象构造时：当创建一个包含虚函数的类的对象时，在对象的构造函数执行过程中，编译器会在对象的内存布局起始位置插入一个虚函数表指针，并将其初始化为指向该类的虚函数表。对于派生类对象，在基类构造函数执行时，虚函数表指针会指向基类的虚函数表；当派生类构造函数执行时，虚函数表指针会被更新为指向派生类的虚函数表。</p>
+<p>对象析构时：在对象的析构函数执行过程中，虚函数表指针会在析构函数结束前被重置。对于派生类对象，在派生类析构函数执行时，虚函数表指针会指向派生类的虚函数表；当基类析构函数执行时，虚函数表指针会被更新为指向基类的虚函数表。</p>
+<h2 id="3-左值引用与右值引用的区别？右值引用的意义？"><a href="#3-左值引用与右值引用的区别？右值引用的意义？" class="headerlink" title="3. 左值引用与右值引用的区别？右值引用的意义？"></a><strong>3. 左值引用与右值引用的区别？右值引用的意义？</strong></h2><h3 id="左值引用与右值引用的区别"><a href="#左值引用与右值引用的区别" class="headerlink" title="左值引用与右值引用的区别"></a><strong>左值引用与右值引用的区别</strong></h3><p>（1）基本概念</p>
+<p>左值：指的是那些可以取地址、有名字的表达式，通常是变量或者对象。例如，普通变量、数组元素、函数返回的左值引用等都是左值。</p>
+<p>右值：指的是那些不能取地址、没有名字的临时对象或字面量。例如，字面常量、函数返回的临时对象等都是右值。</p>
+<p>（2）语法形式</p>
+<p>左值引用：使用一个&amp;符号来声明，它只能绑定到左值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span>&amp; ref = a; <span class="comment">// 左值引用绑定到左值</span></span><br></pre></td></tr></table></figure>
+<p>右值引用：使用两个&amp;&amp;符号来声明，它只能绑定到右值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>&amp;&amp; rref = <span class="number">20</span>; <span class="comment">// 右值引用绑定到右值</span></span><br></pre></td></tr></table></figure>
+<p>（3）绑定规则</p>
+<p>左值引用：只能绑定到左值，不能直接绑定到右值。不过，const左值引用是个例外，它可以绑定到右值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span>&amp; ref1 = a; <span class="comment">// 正确，绑定到左值</span></span><br><span class="line"><span class="comment">// int&amp; ref2 = 20; // 错误，不能将左值引用绑定到右值</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>&amp; ref3 = <span class="number">20</span>; <span class="comment">// 正确，const左值引用可以绑定到右值</span></span><br></pre></td></tr></table></figure>
+<p>右值引用：只能绑定到右值，不能绑定到左值。但可以通过std::move将左值转换为右值后再绑定。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>&amp;&amp; rref1 = <span class="number">20</span>; <span class="comment">// 正确，绑定到右值</span></span><br><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// int&amp;&amp; rref2 = a; // 错误，不能将右值引用绑定到左值</span></span><br><span class="line"><span class="type">int</span>&amp;&amp; rref3 = std::<span class="built_in">move</span>(a); <span class="comment">// 正确，通过std::move将左值转换为右值后绑定</span></span><br></pre></td></tr></table></figure>
+<p>（4）生命周期</p>
+<p>左值引用：如果引用的对象是一个局部变量，其生命周期取决于该局部变量的生命周期。当局部变量离开作用域时，引用也会失效。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> temp = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">// int&amp; ref = temp; // 不推荐，temp 离开作用域后 ref 会失效</span></span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>右值引用：右值引用可以延长右值的生命周期，使其生命周期和右值引用对象的生命周期相同。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyClass</span>() &#123; std::cout &lt;&lt; <span class="string">&quot;Constructor&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">    ~<span class="built_in">MyClass</span>() &#123; std::cout &lt;&lt; <span class="string">&quot;Destructor&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">MyClass <span class="title">getTempObject</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">MyClass</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    MyClass&amp;&amp; rref = <span class="built_in">getTempObject</span>();</span><br><span class="line">    <span class="comment">// 右值的生命周期被延长，直到 rref 离开作用域</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="右值引用的意义"><a href="#右值引用的意义" class="headerlink" title="右值引用的意义"></a><strong>右值引用的意义</strong></h3><p>（1）实现移动语义</p>
+<p>移动语义是C++11引入的重要特性，它允许资源（如动态分配的内存）从一个对象转移到另一个对象，而无需进行昂贵的深拷贝。通过定义移动构造函数和移动赋值运算符，可以使用右值引用实现移动语义。</p>
+<p>（2）完美转发<br>完美转发是指在函数模板中，能够将参数以原有的值类别（左值或右值）传递给其他函数。通过使用右值引用和std::forward，可以实现完美转发。</p>
+<p>综上所述，左值引用和右值引用在概念、语法、绑定规则和生命周期等方面存在明显区别，而右值引用主要用于实现移动语义和完美转发，提高程序的性能和灵活性。</p>
+<h2 id="4-C-智能指针有哪些，有什么区别？"><a href="#4-C-智能指针有哪些，有什么区别？" class="headerlink" title="4. C++智能指针有哪些，有什么区别？"></a><strong>4. C++智能指针有哪些，有什么区别？</strong></h2><ol>
+<li>std::auto_ptr（C++98 引入，C++17 弃用）</li>
+</ol>
+<p>std::auto_ptr是最早引入的智能指针，它采用独占所有权模型，即同一时间只能有一个std::auto_ptr指向同一个对象。当std::auto_ptr被销毁或赋值给另一个std::auto_ptr时，它会自动释放所管理的对象。不过，由于其在转移所有权时的一些问题，在 C++17 中已被弃用。</p>
+<ol start="2">
+<li>std::unique_ptr（C++11 引入）</li>
+</ol>
+<p>std::unique_ptr同样采用独占所有权模型，确保同一时间只有一个std::unique_ptr指向同一个对象。与std::auto_ptr不同的是，std::unique_ptr的所有权转移更加安全，它禁止隐式的拷贝和赋值操作，只能通过std::move进行显式的所有权转移。</p>
+<ol start="3">
+<li>std::shared_ptr（C++11 引入）</li>
+</ol>
+<p>std::shared_ptr采用共享所有权模型，多个std::shared_ptr可以指向同一个对象。它使用引用计数机制来跟踪有多少个std::shared_ptr共享同一个对象，当引用计数变为 0 时，对象会被自动释放。</p>
+<ol start="4">
+<li>std::weak_ptr（C++11 引入）</li>
+</ol>
+<p>std::weak_ptr是一种弱引用智能指针，它可以从std::shared_ptr或另一个std::weak_ptr创建，但不会增加所指向对象的引用计数。std::weak_ptr主要用于解决std::shared_ptr的循环引用问题。</p>
+<p>区别总结</p>
+<p>所有权模型：<br>std::auto_ptr和std::unique_ptr是独占所有权，同一时间只有一个智能指针可以指向同一个对象。<br>std::shared_ptr是共享所有权，多个智能指针可以同时指向同一个对象。<br>std::weak_ptr是弱引用，不拥有对象的所有权。</p>
+<p>安全性：<br>std::auto_ptr在转移所有权时存在一些问题，容易导致悬空指针，已被弃用。<br>std::unique_ptr通过禁止隐式拷贝和赋值，提高了所有权转移的安全性。<br>std::shared_ptr和std::weak_ptr使用引用计数机制，避免了手动管理内存的复杂性。</p>
+<p>引用计数：<br>std::shared_ptr使用引用计数来跟踪对象的引用次数，当引用计数为 0 时自动释放对象。<br>std::weak_ptr不影响对象的引用计数，主要用于解决循环引用问题。</p>
+<p>综上所述，在实际开发中，应优先使用std::unique_ptr和std::shared_ptr，根据具体需求选择合适的智能指针。如果需要独占所有权，使用std::unique_ptr；如果需要共享所有权，使用std::shared_ptr；如果需要解决循环引用问题，使用std::weak_ptr。</p>
+<h2 id="5-sizeof与strlen的差异？"><a href="#5-sizeof与strlen的差异？" class="headerlink" title="5. sizeof与strlen的差异？"></a><strong>5. sizeof与strlen的差异？</strong></h2><p>sizeof：它是一个运算符，并非函数。在编译阶段，编译器就会对sizeof进行计算，确定数据类型或者变量所占用的内存字节数。</p>
+<p>它可以用于计算各种数据类型（如int、char、double等）、变量、数组、指针或者结构体所占用的内存大小。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="type">char</span> str[] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of int: %zu\n&quot;</span>, <span class="built_in">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of num: %zu\n&quot;</span>, <span class="built_in">sizeof</span>(num));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of str: %zu\n&quot;</span>, <span class="built_in">sizeof</span>(str));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>strlen：这是一个标准库函数，其定义在&lt;string.h&gt;（C）或者<cstring>（C++）头文件中。它会在运行时计算字符串的实际长度。</p>
+<p>它只能用于以’\0’结尾的字符串，计算从字符串起始位置到第一个’\0’字符之间的字符个数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> str[] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Length of str: %zu\n&quot;</span>, <span class="built_in">strlen</span>(str));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>综上所述，sizeof和strlen在本质、使用方式、计算结果、时间复杂度和适用范围等方面都存在明显差异。在实际编程中，需要根据具体需求选择合适的工具。如果需要确定数据类型或变量所占用的内存大小，使用sizeof；如果需要计算字符串的实际长度，使用strlen。</p>
+<a href="/2025/8-a/" title="C&#x2F;C++面试题目整理（2）">C++面试题目整理（2）</a>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/1-a/" rel="prev" title="Hello My Friends！">
+      <i class="fa fa-chevron-left"></i> Hello My Friends！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/4-a/" rel="next" title="抖功">
+      抖功 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E7%90%86%E4%B8%80%E4%BA%9BC-C-%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E7%9A%84%E9%A2%98%E7%9B%AE%EF%BC%8C%E7%BB%8F%E5%B8%B8%E6%8B%BF%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%90%A7"><span class="nav-number">1.</span> <span class="nav-text">整理一些C&#x2F;C++程序员面试的题目，经常拿来看看吧~</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-malloc%E3%80%81free%E5%92%8Cnew%E3%80%81delete%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1. malloc、free和new、delete的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E5%92%8C%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E6%8C%87%E9%92%88%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E6%9C%BA%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">2. 虚函数表和虚函数表指针的创建时机？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E6%9C%BA"><span class="nav-number">1.2.1.</span> <span class="nav-text">（1）虚函数表的创建时机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E6%8C%87%E9%92%88%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E6%9C%BA"><span class="nav-number">1.2.2.</span> <span class="nav-text">（2）虚函数表指针的创建时机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E6%84%8F%E4%B9%89%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">3. 左值引用与右值引用的区别？右值引用的意义？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.3.1.</span> <span class="nav-text">左值引用与右值引用的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">右值引用的意义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">4. C++智能指针有哪些，有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-sizeof%E4%B8%8Estrlen%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%9F"><span class="nav-number">1.5.</span> <span class="nav-text">5. sizeof与strlen的差异？</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hance</p>
+  <div class="site-description" itemprop="description">大家好，我是一位来自中国的软件工程师，这是我的个人网站，用于记录工作与生活，感谢关注</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deguangpu2023" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deguangpu2023" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:294284364@qq.com" title="E-Mail → mailto:294284364@qq.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://rgbtoo.xyz/" title="https:&#x2F;&#x2F;rgbtoo.xyz" rel="noopener" target="_blank">颜色转换工具</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hance</span>
+</div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=68284051a7cb4a00198419ec&product=sop' async='async'></script>
+<div class="sharethis-inline-share-buttons"></div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
